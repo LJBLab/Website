@@ -1,0 +1,304 @@
+---
+// Smooth Scroll Component - Adds smooth scrolling and scroll-triggered animations
+---
+
+<script>
+  // Smooth scroll for anchor links
+  document.addEventListener('DOMContentLoaded', () => {
+    // Handle all anchor links
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    
+    anchorLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href && href !== '#') {
+          e.preventDefault();
+          
+          const targetId = href.substring(1);
+          const targetElement = document.getElementById(targetId);
+          
+          if (targetElement) {
+            // Calculate offset for fixed header
+            const headerHeight = document.querySelector('header')?.offsetHeight || 80;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+            
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+            
+            // Update URL without jumping
+            history.pushState(null, '', href);
+          }
+        }
+      });
+    });
+    
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+    
+    // Fade in animations
+    const fadeElements = document.querySelectorAll('.scroll-fade-in');
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in-active');
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    fadeElements.forEach(el => fadeObserver.observe(el));
+    
+    // Scale animations
+    const scaleElements = document.querySelectorAll('.scroll-scale-in');
+    const scaleObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('scale-in-active');
+          scaleObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    scaleElements.forEach(el => scaleObserver.observe(el));
+    
+    // Slide animations
+    const slideElements = document.querySelectorAll('.scroll-slide-up');
+    const slideObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('slide-up-active');
+          slideObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    slideElements.forEach(el => slideObserver.observe(el));
+    
+    // Progress indicator
+    const progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress-bar';
+    document.body.appendChild(progressBar);
+    
+    const updateScrollProgress = () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollProgress = (scrollTop / scrollHeight) * 100;
+      progressBar.style.width = scrollProgress + '%';
+    };
+    
+    window.addEventListener('scroll', updateScrollProgress);
+    window.addEventListener('resize', updateScrollProgress);
+    
+    // Add scroll-to-top button
+    const scrollToTopBtn = document.createElement('button');
+    scrollToTopBtn.className = 'scroll-to-top';
+    scrollToTopBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>';
+    scrollToTopBtn.setAttribute('aria-label', 'Scroll to top');
+    document.body.appendChild(scrollToTopBtn);
+    
+    scrollToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Show/hide scroll-to-top button
+    const toggleScrollToTop = () => {
+      if (window.pageYOffset > 300) {
+        scrollToTopBtn.classList.add('visible');
+      } else {
+        scrollToTopBtn.classList.remove('visible');
+      }
+    };
+    
+    window.addEventListener('scroll', toggleScrollToTop);
+    
+    // Add parallax effect to hero
+    const heroSection = document.querySelector('.hero-parallax');
+    if (heroSection) {
+      window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const parallaxSpeed = 0.5;
+        heroSection.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
+      });
+    }
+    
+    // Add section navigation dots
+    const sections = document.querySelectorAll('section[id]');
+    if (sections.length > 0) {
+      const navDots = document.createElement('div');
+      navDots.className = 'section-nav-dots';
+      
+      sections.forEach((section, index) => {
+        const dot = document.createElement('button');
+        dot.className = 'nav-dot';
+        dot.setAttribute('aria-label', `Go to section ${index + 1}`);
+        dot.addEventListener('click', () => {
+          const headerHeight = document.querySelector('header')?.offsetHeight || 80;
+          const elementPosition = section.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        });
+        navDots.appendChild(dot);
+      });
+      
+      document.body.appendChild(navDots);
+      
+      // Update active dot on scroll
+      const updateActiveDot = () => {
+        const scrollPosition = window.pageYOffset + window.innerHeight / 2;
+        
+        sections.forEach((section, index) => {
+          const sectionTop = section.offsetTop;
+          const sectionBottom = sectionTop + section.offsetHeight;
+          const dots = document.querySelectorAll('.nav-dot');
+          
+          if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
+            dots.forEach(d => d.classList.remove('active'));
+            dots[index]?.classList.add('active');
+          }
+        });
+      };
+      
+      window.addEventListener('scroll', updateActiveDot);
+      updateActiveDot(); // Set initial state
+    }
+  });
+</script>
+
+<style>
+  /* Scroll progress bar */
+  .scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #0ea5e9, #8b5cf6, #ec4899);
+    width: 0%;
+    z-index: 9999;
+    transition: width 0.1s ease;
+  }
+  
+  /* Scroll to top button */
+  .scroll-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0ea5e9, #8b5cf6);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .scroll-to-top:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Section navigation dots */
+  .section-nav-dots {
+    position: fixed;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 998;
+    display: none;
+  }
+  
+  @media (min-width: 1024px) {
+    .section-nav-dots {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+  
+  .nav-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid rgba(139, 92, 246, 0.3);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-dot:hover {
+    border-color: rgba(139, 92, 246, 0.6);
+    background: rgba(139, 92, 246, 0.2);
+  }
+  
+  .nav-dot.active {
+    background: #8b5cf6;
+    border-color: #8b5cf6;
+  }
+  
+  /* Scroll animations */
+  .scroll-fade-in {
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
+  
+  .scroll-fade-in.fade-in-active {
+    opacity: 1;
+  }
+  
+  .scroll-scale-in {
+    transform: scale(0.9);
+    opacity: 0;
+    transition: all 0.8s ease;
+  }
+  
+  .scroll-scale-in.scale-in-active {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .scroll-slide-up {
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all 0.8s ease;
+  }
+  
+  .scroll-slide-up.slide-up-active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  /* Smooth scroll behavior for the entire page */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Prevent layout shift on scroll */
+  body {
+    overflow-anchor: auto;
+  }
+</style>

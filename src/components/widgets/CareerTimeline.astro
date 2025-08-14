@@ -1,0 +1,363 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface TimelinePeriod {
+  years: string;
+  title: string;
+  subtitle: string;
+  projects: {
+    name: string;
+    type: string;
+    color: string;
+    icon: string;
+    description?: string;
+  }[];
+  highlight?: boolean;
+}
+
+const timeline: TimelinePeriod[] = [
+  {
+    years: '2023 - Present',
+    title: 'Triple Innovation Phase',
+    subtitle: 'Leading 3 Concurrent AI Ventures',
+    highlight: true,
+    projects: [
+      {
+        name: 'U.S. Department of Interior',
+        type: 'Government',
+        color: 'bg-blue-500',
+        icon: 'tabler:building-bank',
+        description: 'Text-to-SQL AI for 10+ NPS systems'
+      },
+      {
+        name: 'PreventX AI',
+        type: 'Healthcare',
+        color: 'bg-green-500',
+        icon: 'tabler:heartbeat',
+        description: '32% healthcare cost reduction'
+      },
+      {
+        name: 'Bliik Platform',
+        type: 'Social Impact',
+        color: 'bg-amber-500',
+        icon: 'tabler:puzzle',
+        description: 'Autism therapy accessibility'
+      }
+    ]
+  },
+  {
+    years: '2019 - 2022',
+    title: 'Enterprise & Innovation',
+    subtitle: 'Building Industry Solutions',
+    projects: [
+      {
+        name: 'Ptec',
+        type: 'Enterprise',
+        color: 'bg-purple-500',
+        icon: 'tabler:building-factory',
+        description: 'ERP & IoT solutions'
+      },
+      {
+        name: 'Facial Recognition AI',
+        type: 'AI/ML',
+        color: 'bg-pink-500',
+        icon: 'tabler:eye',
+        description: '99.7% accuracy biometrics'
+      }
+    ]
+  },
+  {
+    years: '2017 - 2020',
+    title: 'Political Tech Pioneer',
+    subtitle: 'Revolutionizing Campaign Technology',
+    projects: [
+      {
+        name: 'E-Lege Platform',
+        type: 'Political Tech',
+        color: 'bg-indigo-500',
+        icon: 'tabler:users',
+        description: 'Campaign management SaaS'
+      },
+      {
+        name: 'Data Science - Legislature',
+        type: 'Government',
+        color: 'bg-cyan-500',
+        icon: 'tabler:chart-bar',
+        description: 'Python analytics with Pandas'
+      },
+      {
+        name: 'Predictive Modeling',
+        type: 'Data Science',
+        color: 'bg-teal-500',
+        icon: 'tabler:brain',
+        description: 'Voter behavior analytics'
+      }
+    ]
+  },
+  {
+    years: '2016 - 2018',
+    title: 'Environmental Tech',
+    subtitle: 'Sustainable Industry Solutions',
+    projects: [
+      {
+        name: 'Eco2 Sistemas',
+        type: 'Environmental',
+        color: 'bg-green-600',
+        icon: 'tabler:tree',
+        description: 'Chain of custody for certified wood'
+      },
+      {
+        name: 'Lumber Industry ERP',
+        type: 'Enterprise',
+        color: 'bg-yellow-600',
+        icon: 'tabler:package',
+        description: 'Supply chain management'
+      }
+    ]
+  },
+  {
+    years: '2014 - 2016',
+    title: 'Biometric Innovation',
+    subtitle: 'Pioneering Facial Recognition',
+    projects: [
+      {
+        name: 'MetaTI',
+        type: 'Startup',
+        color: 'bg-orange-500',
+        icon: 'tabler:fingerprint',
+        description: 'Time clock systems for government'
+      },
+      {
+        name: 'Mobile Development',
+        type: 'Mobile',
+        color: 'bg-red-500',
+        icon: 'tabler:device-mobile',
+        description: 'Cross-platform Xamarin apps'
+      }
+    ]
+  },
+  {
+    years: '2012 - 2014',
+    title: 'Industrial Automation',
+    subtitle: 'Manufacturing Tech Solutions',
+    projects: [
+      {
+        name: 'Plasmel Indústria',
+        type: 'Industrial',
+        color: 'bg-gray-600',
+        icon: 'tabler:settings',
+        description: 'Facial recognition & BI systems'
+      },
+      {
+        name: 'SSIS/SSRS Development',
+        type: 'Data',
+        color: 'bg-slate-600',
+        icon: 'tabler:database',
+        description: 'ETL & reporting solutions'
+      }
+    ]
+  },
+  {
+    years: '2008 - 2012',
+    title: 'Foundation Years',
+    subtitle: 'Government QA & Testing',
+    projects: [
+      {
+        name: 'Tribunal de Contas',
+        type: 'Government',
+        color: 'bg-blue-700',
+        icon: 'tabler:gavel',
+        description: 'System testing & documentation'
+      }
+    ]
+  }
+];
+
+// Calculate statistics
+const totalProjects = timeline.reduce((acc, period) => acc + period.projects.length, 0);
+const averageProjectsPerPeriod = (totalProjects / timeline.length).toFixed(1);
+const maxConcurrentProjects = Math.max(...timeline.map(period => period.projects.length));
+---
+
+<section id="timeline" class="py-20 px-4 mx-auto max-w-7xl">
+  <!-- Section Header -->
+  <div class="text-center mb-12">
+    <p class="text-sm font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wide mb-2">
+      Career Journey
+    </p>
+    <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
+      The Pattern: A Decade of Parallel Innovation
+    </h2>
+    <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-8">
+      Every phase of my career shows the same pattern: multiple concurrent projects across different industries. 
+      This isn't multitasking—it's cross-pollination of innovation.
+    </p>
+    
+    <!-- Timeline Stats -->
+    <div class="flex justify-center gap-8 mb-8">
+      <div class="text-center">
+        <div class="text-3xl font-bold text-blue-600 dark:text-blue-400">{totalProjects}</div>
+        <div class="text-sm text-gray-600 dark:text-gray-400">Total Projects</div>
+      </div>
+      <div class="text-center">
+        <div class="text-3xl font-bold text-purple-600 dark:text-purple-400">{averageProjectsPerPeriod}</div>
+        <div class="text-sm text-gray-600 dark:text-gray-400">Avg Per Period</div>
+      </div>
+      <div class="text-center">
+        <div class="text-3xl font-bold text-green-600 dark:text-green-400">{maxConcurrentProjects}</div>
+        <div class="text-sm text-gray-600 dark:text-gray-400">Max Concurrent</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Timeline Container -->
+  <div class="relative">
+    <!-- Central Line -->
+    <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500 via-purple-500 to-green-500 opacity-20"></div>
+    
+    <!-- Timeline Periods -->
+    {timeline.map((period, index) => (
+      <div class={`timeline-period relative mb-12 ${index % 2 === 0 ? 'md:pr-[50%]' : 'md:pl-[50%] md:text-right'}`}>
+        <!-- Connection Node -->
+        <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white dark:bg-gray-900 border-4 border-blue-500 rounded-full z-10"></div>
+        
+        <!-- Period Card -->
+        <div class={`
+          period-card p-6 rounded-2xl
+          ${period.highlight 
+            ? 'bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950/30 dark:to-purple-950/30 border-2 border-blue-400 dark:border-blue-600 shadow-xl' 
+            : 'bg-gray-50 dark:bg-gray-800/30 border border-gray-200 dark:border-gray-700 shadow-lg'}
+          hover:shadow-2xl transition-all duration-300
+          animate-fade-in
+        `}>
+          <!-- Year Badge -->
+          <div class={`inline-block px-3 py-1 rounded-full text-xs font-semibold mb-3
+            ${period.highlight 
+              ? 'bg-blue-500 text-white' 
+              : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'}
+          `}>
+            {period.years}
+          </div>
+          
+          <!-- Title & Subtitle -->
+          <h3 class="text-xl font-bold mb-1 text-gray-900 dark:text-white">
+            {period.title}
+          </h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+            {period.subtitle}
+          </p>
+          
+          <!-- Projects Grid -->
+          <div class={`grid gap-3 ${period.projects.length > 2 ? 'md:grid-cols-2' : ''}`}>
+            {period.projects.map((project) => (
+              <div class="project-item flex items-start gap-3 p-3 bg-white dark:bg-gray-900/30 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800/50 transition-colors">
+                <div class={`p-2 rounded-lg ${project.color} bg-opacity-10 dark:bg-opacity-20`}>
+                  <Icon name={project.icon} class={`w-5 h-5 ${project.color.replace('bg-', 'text-')}`} />
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="font-semibold text-sm text-gray-900 dark:text-white truncate">
+                    {project.name}
+                  </div>
+                  <div class="text-xs text-gray-500 dark:text-gray-400">
+                    {project.type}
+                  </div>
+                  {project.description && (
+                    <div class="text-xs text-gray-600 dark:text-gray-400 mt-1">
+                      {project.description}
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <!-- Project Count Indicator -->
+          <div class="mt-4 flex items-center gap-2">
+            <div class="flex -space-x-2">
+              {period.projects.map((project, i) => (
+                <div 
+                  class={`w-2 h-2 rounded-full ${project.color} ${i > 0 ? 'ml-[-4px]' : ''}`}
+                  title={project.name}
+                ></div>
+              ))}
+            </div>
+            <span class="text-xs text-gray-500 dark:text-gray-400">
+              {period.projects.length} {period.projects.length === 1 ? 'project' : 'concurrent projects'}
+            </span>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Insight Box -->
+  <div class="mt-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-center">
+    <Icon name="tabler:bulb" class="w-12 h-12 text-white mx-auto mb-4" />
+    <h3 class="text-2xl font-bold text-white mb-4">
+      The Pattern Is the Superpower
+    </h3>
+    <p class="text-lg text-white/90 max-w-3xl mx-auto mb-6">
+      For over a decade, I've consistently managed multiple projects across diverse industries. 
+      This parallel approach enables cross-industry innovation—applying healthcare insights to government systems, 
+      bringing enterprise patterns to startups, and leveraging AI across all domains.
+    </p>
+    <a 
+      href="#work-with-me"
+      class="inline-flex items-center justify-center px-6 py-3 bg-white text-blue-600 rounded-full font-semibold hover:bg-gray-100 transition-all"
+    >
+      Leverage This Experience
+      <Icon name="tabler:arrow-right" class="w-5 h-5 ml-2" />
+    </a>
+  </div>
+</section>
+
+<style>
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out both;
+  }
+  
+  .timeline-period:nth-child(1) .period-card { animation-delay: 0.1s; }
+  .timeline-period:nth-child(2) .period-card { animation-delay: 0.2s; }
+  .timeline-period:nth-child(3) .period-card { animation-delay: 0.3s; }
+  .timeline-period:nth-child(4) .period-card { animation-delay: 0.4s; }
+  .timeline-period:nth-child(5) .period-card { animation-delay: 0.5s; }
+  .timeline-period:nth-child(6) .period-card { animation-delay: 0.6s; }
+  .timeline-period:nth-child(7) .period-card { animation-delay: 0.7s; }
+  
+  .project-item {
+    transition: all 0.2s ease;
+  }
+  
+  .project-item:hover {
+    transform: translateX(4px);
+  }
+  
+  /* Mobile adjustments */
+  @media (max-width: 768px) {
+    .timeline-period {
+      padding-left: 2rem !important;
+      padding-right: 0 !important;
+      text-align: left !important;
+    }
+    
+    .timeline-period .period-card {
+      margin-left: 1rem;
+    }
+    
+    .timeline-period > div:first-child {
+      left: 0;
+      transform: translateX(0);
+    }
+  }
+</style>

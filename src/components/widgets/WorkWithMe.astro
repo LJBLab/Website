@@ -1,0 +1,316 @@
+---
+import { Icon } from 'astro-icon/components';
+import Button from '~/components/ui/Button.astro';
+
+interface ServiceTier {
+  name: string;
+  price: string;
+  period: string;
+  description: string;
+  features: string[];
+  highlighted?: boolean;
+  cta: string;
+  link: string;
+  icon: string;
+  color: {
+    light: string;
+    dark: string;
+    accent: string;
+  };
+}
+
+const services: ServiceTier[] = [
+  {
+    name: 'Advisory',
+    price: '$5,000',
+    period: '/month',
+    description: 'Strategic guidance for your technical initiatives',
+    features: [
+      '4 hours monthly consultation',
+      'Architecture & code reviews',
+      'Strategic technical roadmap',
+      'Email & Slack support',
+      'Quarterly planning sessions'
+    ],
+    cta: 'Start Advisory',
+    link: 'https://calendly.com/lincolnbicalho/advisory',
+    icon: 'tabler:compass',
+    color: {
+      light: 'bg-gradient-to-br from-blue-50 to-indigo-50',
+      dark: 'dark:bg-gradient-to-br dark:from-blue-950/20 dark:to-indigo-950/20',
+      accent: 'from-blue-600 to-indigo-600'
+    }
+  },
+  {
+    name: 'Sprint Consulting',
+    price: '$25,000',
+    period: '/project',
+    description: 'Intensive 30-day transformation sprint',
+    features: [
+      '30-day dedicated sprint',
+      'Hands-on development',
+      'Team training & knowledge transfer',
+      'Complete documentation',
+      '30 days post-sprint support',
+      'Daily standups & progress reports'
+    ],
+    highlighted: true,
+    cta: 'Book Sprint',
+    link: 'https://calendly.com/lincolnbicalho/sprint',
+    icon: 'tabler:rocket',
+    color: {
+      light: 'bg-gradient-to-br from-purple-50 to-pink-50',
+      dark: 'dark:bg-gradient-to-br dark:from-purple-950/20 dark:to-pink-950/20',
+      accent: 'from-purple-600 to-pink-600'
+    }
+  },
+  {
+    name: 'Fractional CTO',
+    price: '$20,000',
+    period: '/month',
+    description: 'Part-time executive technical leadership',
+    features: [
+      'Part-time CTO role (2-3 days/week)',
+      'Technical team leadership',
+      'Investor & board relations',
+      'Hiring & team building',
+      'Strategic roadmap ownership',
+      'Vendor & partner management'
+    ],
+    cta: 'Explore CTO',
+    link: 'https://calendly.com/lincolnbicalho/cto',
+    icon: 'tabler:briefcase',
+    color: {
+      light: 'bg-gradient-to-br from-green-50 to-emerald-50',
+      dark: 'dark:bg-gradient-to-br dark:from-green-950/20 dark:to-emerald-950/20',
+      accent: 'from-green-600 to-emerald-600'
+    }
+  }
+];
+
+const testimonials = [
+  {
+    quote: "Lincoln's parallel innovation approach transformed our healthcare platform, reducing costs by 32% in just 6 months.",
+    author: "CTO, Healthcare Startup",
+    company: "PreventX Partner"
+  },
+  {
+    quote: "His ability to manage multiple complex projects while maintaining quality is unmatched. A true force multiplier.",
+    author: "Director of Engineering",
+    company: "Department of Interior"
+  }
+];
+---
+
+<section id="work-with-me" class="py-20 px-4 mx-auto max-w-7xl">
+  <!-- Section Header -->
+  <div class="text-center mb-12">
+    <p class="text-sm font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wide mb-2">
+      Collaboration Options
+    </p>
+    <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
+      Work With Me
+    </h2>
+    <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+      Choose the engagement model that fits your needs. From strategic advisory to hands-on development, 
+      I bring parallel innovation expertise to accelerate your success.
+    </p>
+  </div>
+
+  <!-- Service Tiers -->
+  <div class="grid lg:grid-cols-3 gap-8 mb-16">
+    {services.map((service) => (
+      <div class={`
+        service-tier relative rounded-2xl p-8
+        ${service.color.light} ${service.color.dark}
+        border-2 ${service.highlighted 
+          ? 'border-purple-400 dark:border-purple-600 shadow-2xl transform scale-105' 
+          : 'border-gray-200 dark:border-gray-700 shadow-lg'}
+        transition-all duration-300 hover:shadow-2xl hover:transform hover:-translate-y-2
+      `}>
+        {service.highlighted && (
+          <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+            <span class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
+              Most Popular
+            </span>
+          </div>
+        )}
+
+        <!-- Icon -->
+        <div class="mb-6">
+          <div class={`inline-flex p-3 rounded-xl bg-white/50 dark:bg-gray-900/30`}>
+            <Icon name={service.icon} class="w-8 h-8 text-gray-700 dark:text-gray-300" />
+          </div>
+        </div>
+
+        <!-- Tier Name -->
+        <h3 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white">
+          {service.name}
+        </h3>
+
+        <!-- Price -->
+        <div class="mb-4">
+          <span class="text-4xl font-bold text-gray-900 dark:text-white">{service.price}</span>
+          <span class="text-gray-600 dark:text-gray-400">{service.period}</span>
+        </div>
+
+        <!-- Description -->
+        <p class="text-gray-600 dark:text-gray-300 mb-6">
+          {service.description}
+        </p>
+
+        <!-- Features -->
+        <ul class="space-y-3 mb-8">
+          {service.features.map((feature) => (
+            <li class="flex items-start">
+              <Icon name="tabler:check" class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+              <span class="text-gray-600 dark:text-gray-300 text-sm">{feature}</span>
+            </li>
+          ))}
+        </ul>
+
+        <!-- CTA Button -->
+        <a 
+          href={service.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={`
+            block w-full text-center py-3 px-6 rounded-full font-semibold
+            transition-all duration-300
+            ${service.highlighted
+              ? 'bg-gradient-to-r ' + service.color.accent + ' text-white hover:shadow-lg'
+              : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'}
+          `}
+        >
+          {service.cta}
+          <Icon name="tabler:arrow-right" class="inline-block w-4 h-4 ml-2" />
+        </a>
+      </div>
+    ))}
+  </div>
+
+  <!-- Comparison Table -->
+  <div class="mb-16 overflow-x-auto">
+    <table class="w-full text-left">
+      <thead>
+        <tr class="border-b border-gray-200 dark:border-gray-700">
+          <th class="py-4 px-6 text-gray-900 dark:text-white font-semibold">Compare Services</th>
+          <th class="py-4 px-6 text-center text-gray-900 dark:text-white">Advisory</th>
+          <th class="py-4 px-6 text-center text-gray-900 dark:text-white">Sprint</th>
+          <th class="py-4 px-6 text-center text-gray-900 dark:text-white">Fractional CTO</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-gray-100 dark:border-gray-800">
+          <td class="py-3 px-6 text-gray-600 dark:text-gray-400">Time Commitment</td>
+          <td class="py-3 px-6 text-center">4 hrs/month</td>
+          <td class="py-3 px-6 text-center">Full-time 30 days</td>
+          <td class="py-3 px-6 text-center">2-3 days/week</td>
+        </tr>
+        <tr class="border-b border-gray-100 dark:border-gray-800">
+          <td class="py-3 px-6 text-gray-600 dark:text-gray-400">Hands-on Development</td>
+          <td class="py-3 px-6 text-center">❌</td>
+          <td class="py-3 px-6 text-center">✅</td>
+          <td class="py-3 px-6 text-center">✅</td>
+        </tr>
+        <tr class="border-b border-gray-100 dark:border-gray-800">
+          <td class="py-3 px-6 text-gray-600 dark:text-gray-400">Strategic Planning</td>
+          <td class="py-3 px-6 text-center">✅</td>
+          <td class="py-3 px-6 text-center">✅</td>
+          <td class="py-3 px-6 text-center">✅</td>
+        </tr>
+        <tr class="border-b border-gray-100 dark:border-gray-800">
+          <td class="py-3 px-6 text-gray-600 dark:text-gray-400">Team Leadership</td>
+          <td class="py-3 px-6 text-center">❌</td>
+          <td class="py-3 px-6 text-center">Limited</td>
+          <td class="py-3 px-6 text-center">✅</td>
+        </tr>
+        <tr class="border-b border-gray-100 dark:border-gray-800">
+          <td class="py-3 px-6 text-gray-600 dark:text-gray-400">Best For</td>
+          <td class="py-3 px-6 text-center text-sm">Guidance & Reviews</td>
+          <td class="py-3 px-6 text-center text-sm">Rapid Transformation</td>
+          <td class="py-3 px-6 text-center text-sm">Long-term Leadership</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Testimonials -->
+  <div class="mb-16">
+    <h3 class="text-2xl font-bold text-center mb-8 text-gray-900 dark:text-white">
+      What Clients Say
+    </h3>
+    <div class="grid md:grid-cols-2 gap-8">
+      {testimonials.map((testimonial) => (
+        <div class="bg-gray-100 dark:bg-gray-800/50 rounded-xl p-6">
+          <Icon name="tabler:quote" class="w-8 h-8 text-gray-400 mb-4" />
+          <p class="text-gray-600 dark:text-gray-300 mb-4 italic">
+            "{testimonial.quote}"
+          </p>
+          <div>
+            <p class="font-semibold text-gray-900 dark:text-white">{testimonial.author}</p>
+            <p class="text-sm text-gray-500 dark:text-gray-400">{testimonial.company}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Custom Engagement CTA -->
+  <div class="text-center bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-12">
+    <h3 class="text-3xl font-bold text-white mb-4">
+      Need Something Different?
+    </h3>
+    <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+      Every challenge is unique. Let's discuss a custom engagement that fits your specific needs, 
+      timeline, and budget.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a 
+        href="https://calendly.com/lincolnbicalho/discovery"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 rounded-full font-semibold hover:bg-gray-100 transition-all"
+      >
+        Book Discovery Call
+        <Icon name="tabler:calendar" class="w-5 h-5 ml-2" />
+      </a>
+      <a 
+        href="mailto:lincoln@ljblab.dev"
+        class="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-full font-semibold hover:bg-white/10 transition-all"
+      >
+        Email Directly
+        <Icon name="tabler:mail" class="w-5 h-5 ml-2" />
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .service-tier {
+    animation: fadeInUp 0.8s both;
+  }
+  
+  .service-tier:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  
+  .service-tier:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .service-tier:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

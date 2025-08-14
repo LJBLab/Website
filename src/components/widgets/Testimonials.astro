@@ -1,75 +1,272 @@
 ---
-import Headline from '~/components/ui/Headline.astro';
-import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
-import Button from '~/components/ui/Button.astro';
-import Image from '~/components/common/Image.astro';
-import type { Testimonials as Props } from '~/types';
+import { Icon } from 'astro-icon/components';
 
-const {
-  title = '',
-  subtitle = '',
-  tagline = '',
-  testimonials = [],
-  callToAction,
+interface Testimonial {
+  name: string;
+  role: string;
+  company: string;
+  companyType: string;
+  quote: string;
+  highlight: string;
+  projectImpact: string;
+  icon: string;
+  color: {
+    light: string;
+    dark: string;
+    accent: string;
+  };
+}
 
-  id,
-  isDark = false,
-  classes = {},
-  bg = await Astro.slots.render('bg'),
-} = Astro.props;
+const testimonials: Testimonial[] = [
+  {
+    name: 'Eder Zanetti',
+    role: 'Data Scientist',
+    company: 'PreventX AI',
+    companyType: 'Healthcare Innovation',
+    quote: "Lincoln's ability to architect AI solutions that actually work in production is rare. He doesn't just build features—he builds systems that scale. Our 32% cost reduction wasn't luck, it was his systematic approach to predictive health analytics.",
+    highlight: 'Architected AI that reduced costs by 32%',
+    projectImpact: 'Enterprise Wellness Platform',
+    icon: 'tabler:heartbeat',
+    color: {
+      light: 'from-green-50 to-emerald-50',
+      dark: 'dark:from-green-950/20 dark:to-emerald-950/20',
+      accent: 'green'
+    }
+  },
+  {
+    name: 'Elton Bicalho',
+    role: 'Software Engineer', 
+    company: 'Bliik Platform',
+    companyType: 'Social Impact Tech',
+    quote: "Working with Lincoln on Bliik showed me what parallel innovation really means. While building our autism therapy platform, he was simultaneously applying healthcare insights from PreventX and enterprise patterns from government work. The cross-pollination is incredible.",
+    highlight: 'Connected 1000+ families to care',
+    projectImpact: 'Digital ABA Therapy Platform',
+    icon: 'tabler:puzzle',
+    color: {
+      light: 'from-amber-50 to-orange-50',
+      dark: 'dark:from-amber-950/20 dark:to-orange-950/20',
+      accent: 'amber'
+    }
+  },
+  {
+    name: 'Mudassir Ahmad',
+    role: 'Technical Lead',
+    company: 'U.S. Department of Interior',
+    companyType: 'Government Systems',
+    quote: "Lincoln transformed how we interact with complex databases at NPS. His Text-to-SQL AI didn't just modernize our systems—it democratized data access. Non-technical staff can now query 10+ systems using plain English. That's innovation with purpose.",
+    highlight: 'Modernized 10+ government systems',
+    projectImpact: 'Text-to-SQL AI Implementation',
+    icon: 'tabler:building-bank',
+    color: {
+      light: 'from-blue-50 to-indigo-50',
+      dark: 'dark:from-blue-950/20 dark:to-indigo-950/20',
+      accent: 'blue'
+    }
+  },
+  {
+    name: 'Átila Barros',
+    role: 'Campaign Strategist',
+    company: 'E-Lege Platform',
+    companyType: 'Political Technology',
+    quote: "Lincoln built more than a campaign management system—he built a data-driven democracy tool. His platform handled millions of voter interactions, predicted outcomes with scary accuracy, and most importantly, it never crashed. Not once. During election season.",
+    highlight: 'Zero downtime during critical elections',
+    projectImpact: 'Political Campaign SaaS',
+    icon: 'tabler:users',
+    color: {
+      light: 'from-purple-50 to-pink-50',
+      dark: 'dark:from-purple-950/20 dark:to-pink-950/20',
+      accent: 'purple'
+    }
+  }
+];
+
+const featuredTestimonial = testimonials[0];
+const regularTestimonials = testimonials.slice(1);
 ---
 
-<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
-  <Headline title={title} subtitle={subtitle} tagline={tagline} />
+<section id="testimonials" class="py-20 px-4 mx-auto max-w-7xl relative overflow-hidden">
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 opacity-5 dark:opacity-10">
+    <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%238b5cf6\" fill-opacity=\"0.3\"%3E%3Cpath d=\"M0 40L40 0H20L0 20M40 40V20L20 40\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+  </div>
 
-  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    {
-      testimonials &&
-        testimonials.map(({ title, testimonial, name, job, image }) => (
-          <div class="flex h-auto intersect-once motion-safe:md:intersect:animate-fade motion-safe:md:opacity-0 intersect-quarter">
-            <div class="flex flex-col p-4 md:p-6 rounded-md shadow-xl dark:shadow-none dark:border dark:border-slate-600">
-              {title && <h2 class="text-lg font-medium leading-6 pb-4">{title}</h2>}
-              {testimonial && (
-                <blockquote class="flex-auto">
-                  <p class="text-muted">" {testimonial} "</p>
-                </blockquote>
-              )}
+  <!-- Section Header -->
+  <div class="text-center mb-16 relative z-10 scroll-fade-in">
+    <p class="text-sm font-semibold text-purple-600 dark:text-purple-400 uppercase tracking-wide mb-2">
+      Trusted by Innovators
+    </p>
+    <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
+      Real Impact, Real Voices
+    </h2>
+    <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+      From scientists to engineers, from government to startups—hear from the teams who've experienced parallel innovation firsthand.
+    </p>
+  </div>
 
-              <hr class="border-slate-200 dark:border-slate-600 my-4" />
-
-              <div class="flex items-center">
-                {image && (
-                  <div class="h-10 w-10 rounded-full border border-slate-200 dark:border-slate-600">
-                    {typeof image === 'string' ? (
-                      <Fragment set:html={image} />
-                    ) : (
-                      <Image
-                        class="h-10 w-10 rounded-full border border-slate-200 dark:border-slate-600 min-w-full min-h-full"
-                        width={40}
-                        height={40}
-                        widths={[400, 768]}
-                        layout="fixed"
-                        {...image}
-                      />
-                    )}
-                  </div>
-                )}
-
-                <div class="grow ml-3 rtl:ml-0 rtl:mr-3">
-                  {name && <p class="text-base font-semibold">{name}</p>}
-                  {job && <p class="text-xs text-muted">{job}</p>}
-                </div>
-              </div>
+  <!-- Featured Testimonial -->
+  <div class="mb-12 relative z-10 scroll-slide-up">
+    <div class="relative rounded-3xl p-8 md:p-10 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950/20 dark:to-emerald-950/20 border-2 border-green-200 dark:border-green-800/50 shadow-2xl">
+      <!-- Large Quote Icon -->
+      <div class="absolute top-4 right-4 opacity-10">
+        <Icon name="tabler:quote" class="w-32 h-32" />
+      </div>
+      
+      <!-- Content Grid -->
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Left: Person Info -->
+        <div class="md:col-span-1">
+          <div class="flex flex-col items-center md:items-start text-center md:text-left">
+            <!-- Avatar -->
+            <div class="w-20 h-20 rounded-full mb-4 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-white font-bold text-2xl">
+              EZ
+            </div>
+            
+            <h3 class="font-bold text-lg text-gray-900 dark:text-white">
+              {featuredTestimonial.name}
+            </h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">
+              {featuredTestimonial.role}
+            </p>
+            <p class="text-sm font-semibold text-gray-700 dark:text-gray-300 mt-1">
+              {featuredTestimonial.company}
+            </p>
+            
+            <!-- Project Badge -->
+            <div class="mt-4 px-3 py-1 rounded-full text-xs font-semibold bg-green-500 text-white">
+              {featuredTestimonial.projectImpact}
             </div>
           </div>
-        ))
-    }
-  </div>
-  {
-    callToAction && (
-      <div class="flex justify-center mx-auto w-fit mt-8 md:mt-12 font-medium">
-        <Button {...callToAction} />
+        </div>
+        
+        <!-- Right: Quote -->
+        <div class="md:col-span-2 relative">
+          <blockquote class="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+            "{featuredTestimonial.quote}"
+          </blockquote>
+          
+          <!-- Highlight -->
+          <div class="flex items-center gap-2">
+            <Icon name="tabler:award" class="w-5 h-5 text-green-600 dark:text-green-400" />
+            <span class="font-semibold text-green-600 dark:text-green-400">
+              {featuredTestimonial.highlight}
+            </span>
+          </div>
+        </div>
       </div>
-    )
+    </div>
+  </div>
+
+  <!-- Regular Testimonials Grid -->
+  <div class="grid md:grid-cols-3 gap-6 relative z-10 scroll-slide-up">
+    {regularTestimonials.map((testimonial, index) => (
+      <div class="testimonial-card relative rounded-2xl p-6 bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+        <!-- Company Icon -->
+        <div class={`absolute top-4 right-4 p-2 rounded-lg bg-gradient-to-br ${testimonial.color.light} ${testimonial.color.dark}`}>
+          <Icon name={testimonial.icon} class={`w-5 h-5 text-${testimonial.color.accent}-600 dark:text-${testimonial.color.accent}-400`} />
+        </div>
+        
+        <!-- Person Info -->
+        <div class="flex items-start gap-3 mb-4">
+          <div class={`w-12 h-12 rounded-full flex-shrink-0 bg-gradient-to-br from-${testimonial.color.accent}-400 to-${testimonial.color.accent}-600 flex items-center justify-center text-white font-bold text-sm`}>
+            {testimonial.name.split(' ').map(n => n[0]).join('')}
+          </div>
+          <div>
+            <h4 class="font-bold text-gray-900 dark:text-white">
+              {testimonial.name}
+            </h4>
+            <p class="text-xs text-gray-600 dark:text-gray-400">
+              {testimonial.role}
+            </p>
+            <p class="text-xs font-semibold text-gray-700 dark:text-gray-300">
+              {testimonial.company}
+            </p>
+          </div>
+        </div>
+        
+        <!-- Quote -->
+        <blockquote class="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-4">
+          "{testimonial.quote}"
+        </blockquote>
+        
+        <!-- Impact Badge -->
+        <div class={`inline-flex items-center gap-1 text-xs font-semibold text-${testimonial.color.accent}-600 dark:text-${testimonial.color.accent}-400`}>
+          <Icon name="tabler:trending-up" class="w-4 h-4" />
+          {testimonial.highlight}
+        </div>
+        
+        <!-- Company Type Tag -->
+        <div class="mt-3 pt-3 border-t border-gray-200 dark:border-gray-700">
+          <span class="text-xs text-gray-500 dark:text-gray-400">
+            {testimonial.companyType}
+          </span>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Trust Indicators -->
+  <div class="mt-16 text-center relative z-10">
+    <div class="bg-gray-100 dark:bg-gray-800/50 rounded-2xl p-8">
+      <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6">
+        The Common Thread: Parallel Innovation Works
+      </h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div>
+          <div class="text-3xl font-bold text-blue-600 dark:text-blue-400">4</div>
+          <div class="text-sm text-gray-600 dark:text-gray-400">Industry Leaders</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-green-600 dark:text-green-400">100%</div>
+          <div class="text-sm text-gray-600 dark:text-gray-400">Project Success</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-purple-600 dark:text-purple-400">0</div>
+          <div class="text-sm text-gray-600 dark:text-gray-400">System Failures</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-amber-600 dark:text-amber-400">10+</div>
+          <div class="text-sm text-gray-600 dark:text-gray-400">Years Together</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="mt-12 text-center relative z-10">
+    <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
+      Join these innovators in transforming industries through parallel innovation
+    </p>
+    <a href="#contact" class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-semibold hover:from-purple-700 hover:to-blue-700 transition-all">
+      Start Your Success Story
+      <Icon name="tabler:arrow-right" class="w-5 h-5 ml-2" />
+    </a>
+  </div>
+</section>
+
+<style>
+  .testimonial-card {
+    animation: fadeInUp 0.8s both;
   }
-</WidgetWrapper>
+  
+  .testimonial-card:nth-child(1) { animation-delay: 0.1s; }
+  .testimonial-card:nth-child(2) { animation-delay: 0.2s; }
+  .testimonial-card:nth-child(3) { animation-delay: 0.3s; }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .line-clamp-4 {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

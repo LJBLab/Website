@@ -1,0 +1,65 @@
+---
+// Project Ticker Component - Shows live project status
+---
+
+<div class="project-ticker-container bg-gray-900/50 backdrop-blur-sm py-2 overflow-hidden border-b border-gray-800/50">
+  <div class="ticker-content flex animate-ticker">
+    <div class="ticker-items flex gap-12 px-6">
+      <span class="flex items-center gap-2 text-sm whitespace-nowrap">
+        <span class="w-1.5 h-1.5 bg-green-400/60 rounded-full animate-pulse"></span>
+        <span class="text-gray-400 font-medium">LIVE:</span>
+        <span class="text-gray-300">PreventX AI reducing healthcare costs by 32%</span>
+      </span>
+      
+      <span class="flex items-center gap-2 text-sm whitespace-nowrap">
+        <span class="w-1.5 h-1.5 bg-amber-400/60 rounded-full animate-pulse"></span>
+        <span class="text-gray-400 font-medium">BUILDING:</span>
+        <span class="text-gray-300">Bliik connecting 1000+ autism families with therapists</span>
+      </span>
+      
+      <span class="flex items-center gap-2 text-sm whitespace-nowrap">
+        <span class="w-1.5 h-1.5 bg-blue-400/60 rounded-full animate-pulse"></span>
+        <span class="text-gray-400 font-medium">DEPLOYED:</span>
+        <span class="text-gray-300">DOI Text-to-SQL serving 10+ NPS systems</span>
+      </span>
+      
+      <!-- Duplicate for seamless loop -->
+      <span class="flex items-center gap-2 text-sm whitespace-nowrap">
+        <span class="w-1.5 h-1.5 bg-green-400/60 rounded-full animate-pulse"></span>
+        <span class="text-gray-400 font-medium">LIVE:</span>
+        <span class="text-gray-300">PreventX AI reducing healthcare costs by 32%</span>
+      </span>
+      
+      <span class="flex items-center gap-2 text-sm whitespace-nowrap">
+        <span class="w-1.5 h-1.5 bg-amber-400/60 rounded-full animate-pulse"></span>
+        <span class="text-gray-400 font-medium">BUILDING:</span>
+        <span class="text-gray-300">Bliik connecting 1000+ autism families with therapists</span>
+      </span>
+      
+      <span class="flex items-center gap-2 text-sm whitespace-nowrap">
+        <span class="w-1.5 h-1.5 bg-blue-400/60 rounded-full animate-pulse"></span>
+        <span class="text-gray-400 font-medium">DEPLOYED:</span>
+        <span class="text-gray-300">DOI Text-to-SQL serving 10+ NPS systems</span>
+      </span>
+    </div>
+  </div>
+</div>
+
+<style>
+  @keyframes ticker {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .animate-ticker {
+    animation: ticker 40s linear infinite;
+  }
+  
+  .ticker-content:hover .animate-ticker {
+    animation-play-state: paused;
+  }
+</style>

@@ -1,0 +1,308 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Venture {
+  name: string;
+  role: string;
+  description: string;
+  impact: {
+    number: string;
+    label: string;
+  };
+  colorTheme: {
+    light: {
+      bg: string;
+      border: string;
+      borderHover: string;
+      metricBg: string;
+      techBg: string;
+    };
+    dark: {
+      bg: string;
+      border: string;
+      borderHover: string;
+      metricBg: string;
+      techBg: string;
+    };
+    accent: string;
+    status: string;
+  };
+  icon: string;
+  status: string;
+  technologies: string[];
+  link?: string;
+}
+
+const ventures: Venture[] = [
+  {
+    name: 'PreventX AI',
+    role: 'Technical Architecture Lead',
+    description: 'Enterprise wellness platform using AI to reduce healthcare costs through predictive health analytics and personalized interventions.',
+    impact: {
+      number: '32',
+      label: '% Cost Reduction'
+    },
+    colorTheme: {
+      light: {
+        bg: 'bg-gradient-to-br from-green-50 to-emerald-50',
+        border: 'border-green-200',
+        borderHover: 'hover:border-green-300',
+        metricBg: 'bg-green-100',
+        techBg: 'bg-green-100',
+      },
+      dark: {
+        bg: 'dark:bg-gradient-to-br dark:from-green-950/30 dark:to-emerald-950/30',
+        border: 'dark:border-green-800/50',
+        borderHover: 'dark:hover:border-green-700/70',
+        metricBg: 'dark:bg-green-900/30',
+        techBg: 'dark:bg-green-900/20',
+      },
+      accent: 'green',
+      status: 'bg-green-500',
+    },
+    icon: 'tabler:heartbeat',
+    status: 'ACTIVE',
+    technologies: ['AI/ML', 'Azure', 'Blazor', '6-Factor Health'],
+    link: '#preventx'
+  },
+  {
+    name: 'Bliik Platform',
+    role: 'Platform Architect',
+    description: 'Digital ABA therapy platform revolutionizing autism care by connecting families with qualified therapists on-demand, like "Uber for ABA therapy".',
+    impact: {
+      number: '1000',
+      label: '+ Families Connected'
+    },
+    colorTheme: {
+      light: {
+        bg: 'bg-gradient-to-br from-amber-50 to-orange-50',
+        border: 'border-amber-200',
+        borderHover: 'hover:border-amber-300',
+        metricBg: 'bg-amber-100',
+        techBg: 'bg-amber-100',
+      },
+      dark: {
+        bg: 'dark:bg-gradient-to-br dark:from-amber-950/30 dark:to-orange-950/30',
+        border: 'dark:border-amber-800/50',
+        borderHover: 'dark:hover:border-amber-700/70',
+        metricBg: 'dark:bg-amber-900/30',
+        techBg: 'dark:bg-amber-900/20',
+      },
+      accent: 'amber',
+      status: 'bg-amber-500',
+    },
+    icon: 'tabler:puzzle',
+    status: 'BUILDING',
+    technologies: ['.NET MAUI', 'Clean Architecture', 'HIPAA', 'Real-time Matching'],
+    link: '#bliik'
+  },
+  {
+    name: 'U.S. Department of Interior',
+    role: 'Senior Software Engineer',
+    description: 'Modernizing National Park Service systems with Text-to-SQL AI, making complex databases accessible to non-technical users through natural language.',
+    impact: {
+      number: '10',
+      label: '+ Systems Managed'
+    },
+    colorTheme: {
+      light: {
+        bg: 'bg-gradient-to-br from-blue-50 to-indigo-50',
+        border: 'border-blue-200',
+        borderHover: 'hover:border-blue-300',
+        metricBg: 'bg-blue-100',
+        techBg: 'bg-blue-100',
+      },
+      dark: {
+        bg: 'dark:bg-gradient-to-br dark:from-blue-950/30 dark:to-indigo-950/30',
+        border: 'dark:border-blue-800/50',
+        borderHover: 'dark:hover:border-blue-700/70',
+        metricBg: 'dark:bg-blue-900/30',
+        techBg: 'dark:bg-blue-900/20',
+      },
+      accent: 'blue',
+      status: 'bg-blue-500',
+    },
+    icon: 'tabler:building-bank',
+    status: 'DEPLOYED',
+    technologies: ['Text-to-SQL', 'Angular', '.NET Core', 'xUnit'],
+    link: '#doi'
+  }
+];
+---
+
+<section id="ventures" class="py-16 px-4 mx-auto max-w-7xl">
+  <!-- Section Header -->
+  <div class="text-center mb-12 scroll-fade-in">
+    <h2 class="text-4xl font-bold mb-4 text-gray-900 dark:text-white">
+      Current Ventures
+    </h2>
+    <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+      Three parallel innovations, one vision: Making technology accessible where it matters most
+    </p>
+  </div>
+
+  <!-- Venture Cards Grid -->
+  <div class="grid md:grid-cols-3 gap-8 scroll-slide-up">
+    {ventures.map((venture) => (
+      <article class={`
+        venture-card relative rounded-2xl p-6 
+        transition-all duration-300 hover:transform hover:-translate-y-2 
+        shadow-lg hover:shadow-2xl
+        
+        /* Light Mode Styles */
+        ${venture.colorTheme.light.bg}
+        ${venture.colorTheme.light.border}
+        ${venture.colorTheme.light.borderHover}
+        border-2
+        
+        /* Dark Mode Styles */
+        ${venture.colorTheme.dark.bg}
+        ${venture.colorTheme.dark.border}
+        ${venture.colorTheme.dark.borderHover}
+      `}>
+        
+        <!-- Status Badge -->
+        <div class="absolute top-4 right-4">
+          <span class={`
+            inline-flex items-center gap-1 px-2 py-1 rounded-full 
+            text-xs font-semibold text-white
+            ${venture.colorTheme.status}
+          `}>
+            <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
+            {venture.status}
+          </span>
+        </div>
+
+        <!-- Icon & Title -->
+        <div class="mb-4">
+          <div class={`
+            inline-flex p-3 rounded-xl mb-4
+            ${venture.colorTheme.light.techBg}
+            ${venture.colorTheme.dark.techBg}
+          `}>
+            <Icon name={venture.icon} class="w-8 h-8 text-gray-700 dark:text-gray-300" />
+          </div>
+          <h3 class="text-2xl font-bold mb-1 text-gray-900 dark:text-white">
+            {venture.name}
+          </h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400 font-medium">
+            {venture.role}
+          </p>
+        </div>
+
+        <!-- Description -->
+        <p class="text-gray-600 dark:text-gray-300 mb-6 min-h-[80px]">
+          {venture.description}
+        </p>
+
+        <!-- Impact Metric -->
+        <div class={`
+          mb-6 p-4 rounded-xl
+          ${venture.colorTheme.light.metricBg}
+          ${venture.colorTheme.dark.metricBg}
+        `}>
+          <div class="flex items-baseline gap-1">
+            <span class="text-3xl font-bold text-gray-900 dark:text-white">
+              {venture.impact.number}
+            </span>
+            <span class="text-lg text-gray-600 dark:text-gray-400">
+              {venture.impact.label}
+            </span>
+          </div>
+        </div>
+
+        <!-- Technologies -->
+        <div class="flex flex-wrap gap-2 mb-6">
+          {venture.technologies.map((tech) => (
+            <span class={`
+              px-2 py-1 text-xs rounded-full
+              text-gray-700 dark:text-gray-300
+              ${venture.colorTheme.light.techBg}
+              ${venture.colorTheme.dark.techBg}
+            `}>
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        <!-- Learn More -->
+        {venture.link && (
+          <a href={venture.link} class="
+            inline-flex items-center gap-2 text-sm font-semibold 
+            text-gray-700 dark:text-gray-300 
+            hover:text-gray-900 dark:hover:text-white 
+            hover:gap-3 transition-all
+          ">
+            Learn More
+            <Icon name="tabler:arrow-right" class="w-4 h-4" />
+          </a>
+        )}
+      </article>
+    ))}
+  </div>
+
+  <!-- Collaboration CTA -->
+  <div class="mt-12 text-center">
+    <p class="text-gray-600 dark:text-gray-400 mb-4">
+      Interested in parallel innovation for your organization?
+    </p>
+    <a href="#contact" class="
+      inline-flex items-center gap-2 px-6 py-3 
+      bg-gradient-to-r from-blue-600 to-purple-600 
+      hover:from-blue-700 hover:to-purple-700
+      rounded-full font-semibold text-white transition-all
+    ">
+      Let's Collaborate
+      <Icon name="tabler:arrow-right" class="w-5 h-5" />
+    </a>
+  </div>
+</section>
+
+<style>
+  /* Animation for cards */
+  .venture-card {
+    animation: fadeInUp 0.8s both;
+  }
+  
+  .venture-card:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  
+  .venture-card:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .venture-card:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Light Mode Specific Overrides */
+  @media (prefers-color-scheme: light) {
+    .venture-card {
+      backdrop-filter: none;
+    }
+  }
+
+  /* Dark Mode Specific Overrides */
+  @media (prefers-color-scheme: dark) {
+    .venture-card {
+      backdrop-filter: blur(10px);
+    }
+  }
+  
+  /* When using class-based dark mode */
+  .dark .venture-card {
+    backdrop-filter: blur(10px);
+  }
+</style>

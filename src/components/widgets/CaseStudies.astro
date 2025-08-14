@@ -1,0 +1,550 @@
+---
+import { Icon } from 'astro-icon/components';
+import Image from '~/components/common/Image.astro';
+
+interface Metric {
+  value: string;
+  label: string;
+  icon: string;
+}
+
+interface CaseStudy {
+  id: string;
+  company: string;
+  tagline: string;
+  industry: string;
+  duration: string;
+  hero: {
+    title: string;
+    subtitle: string;
+  };
+  challenge: {
+    title: string;
+    points: string[];
+    impact: string;
+  };
+  solution: {
+    title: string;
+    approach: string[];
+    technologies: string[];
+  };
+  implementation: {
+    phase1: { title: string; description: string };
+    phase2: { title: string; description: string };
+    phase3: { title: string; description: string };
+  };
+  results: {
+    headline: string;
+    metrics: Metric[];
+    testimonial?: {
+      quote: string;
+      author: string;
+      role: string;
+    };
+  };
+  color: {
+    primary: string;
+    secondary: string;
+    light: string;
+    dark: string;
+    accent: string;
+  };
+  icon: string;
+}
+
+const caseStudies: CaseStudy[] = [
+  {
+    id: 'preventx',
+    company: 'PreventX AI',
+    tagline: 'Enterprise Wellness Revolution',
+    industry: 'Healthcare Technology',
+    duration: '6 months',
+    hero: {
+      title: 'From 0 to 32% Cost Reduction',
+      subtitle: 'How AI-Driven Predictive Health Analytics Transformed Enterprise Wellness'
+    },
+    challenge: {
+      title: 'The Healthcare Cost Crisis',
+      points: [
+        'Annual healthcare costs increasing 15% year-over-year',
+        'Reactive care model catching problems too late',
+        'No visibility into employee health trends',
+        'Fragmented wellness programs with low engagement'
+      ],
+      impact: '$2.3M annual healthcare spend with no predictive insights'
+    },
+    solution: {
+      title: 'AI-Powered Predictive Health Platform',
+      approach: [
+        'Built 6-Factor Health Model analyzing physical, mental, financial, social, environmental, and spiritual wellness',
+        'Implemented machine learning algorithms to predict health risks 6-12 months in advance',
+        'Created personalized intervention engine with automated nudges and recommendations',
+        'Developed real-time analytics dashboard for HR teams'
+      ],
+      technologies: ['Azure AI', 'Blazor', 'ML.NET', 'SignalR', 'Entity Framework', 'Power BI']
+    },
+    implementation: {
+      phase1: {
+        title: 'Data Integration & Modeling',
+        description: 'Connected disparate health data sources, built secure HIPAA-compliant infrastructure, and trained initial ML models on 100,000+ health records'
+      },
+      phase2: {
+        title: 'Predictive Engine Development',
+        description: 'Deployed ensemble models achieving 89% accuracy in risk prediction, implemented real-time scoring pipeline processing 10,000+ assessments daily'
+      },
+      phase3: {
+        title: 'Intervention & Optimization',
+        description: 'Launched personalized wellness programs, A/B tested intervention strategies, and continuously refined algorithms based on outcomes'
+      }
+    },
+    results: {
+      headline: 'Transformative Impact in 6 Months',
+      metrics: [
+        { value: '32%', label: 'Cost Reduction', icon: 'tabler:trending-down' },
+        { value: '89%', label: 'Prediction Accuracy', icon: 'tabler:target' },
+        { value: '71%', label: 'Employee Engagement', icon: 'tabler:users' },
+        { value: '6mo', label: 'ROI Achieved', icon: 'tabler:calendar' }
+      ],
+      testimonial: {
+        quote: "Lincoln didn't just build an AI system—he built a healthcare transformation engine. The 32% cost reduction exceeded our 3-year target in just 6 months.",
+        author: 'Eder Zanetti',
+        role: 'Data Scientist, PreventX AI'
+      }
+    },
+    color: {
+      primary: 'green',
+      secondary: 'emerald',
+      light: 'from-green-50 to-emerald-50',
+      dark: 'dark:from-green-950/20 dark:to-emerald-950/20',
+      accent: 'bg-green-500'
+    },
+    icon: 'tabler:heartbeat'
+  },
+  {
+    id: 'bliik',
+    company: 'Bliik Platform',
+    tagline: 'Autism Care Accessibility',
+    industry: 'Social Impact Technology',
+    duration: '8 months',
+    hero: {
+      title: 'Building Uber for Autism Therapy',
+      subtitle: 'Connecting 1000+ Families to ABA Therapists in Real-Time'
+    },
+    challenge: {
+      title: 'The Autism Care Crisis',
+      points: [
+        '18-month average waitlist for ABA therapy',
+        'Families driving 2+ hours for appointments',
+        'Therapists with unfilled schedules due to matching inefficiencies',
+        'No platform for on-demand autism care services'
+      ],
+      impact: '40,000 children in state lacking access to critical early intervention'
+    },
+    solution: {
+      title: 'Digital ABA Therapy Marketplace',
+      approach: [
+        'Created real-time matching algorithm considering location, specialization, insurance, and availability',
+        'Built HIPAA-compliant video therapy platform with session recording and progress tracking',
+        'Implemented automated insurance verification and billing system',
+        'Developed therapist credentialing and quality assurance workflow'
+      ],
+      technologies: ['.NET MAUI', 'Clean Architecture', 'Azure', 'SignalR', 'Twilio', 'Stripe']
+    },
+    implementation: {
+      phase1: {
+        title: 'Platform Architecture',
+        description: 'Designed Clean Architecture with CQRS pattern, built cross-platform app for iOS/Android, implemented real-time messaging system'
+      },
+      phase2: {
+        title: 'Matching Algorithm',
+        description: 'Developed ML-based therapist matching with 94% satisfaction rate, integrated with insurance APIs for instant verification'
+      },
+      phase3: {
+        title: 'Scale & Compliance',
+        description: 'Achieved HIPAA compliance certification, onboarded 500+ therapists, launched in 3 states simultaneously'
+      }
+    },
+    results: {
+      headline: 'Revolutionizing Autism Care Access',
+      metrics: [
+        { value: '1000+', label: 'Families Connected', icon: 'tabler:heart-handshake' },
+        { value: '48hr', label: 'Avg Match Time', icon: 'tabler:clock' },
+        { value: '94%', label: 'Match Satisfaction', icon: 'tabler:star' },
+        { value: '3', label: 'States Launched', icon: 'tabler:map' }
+      ],
+      testimonial: {
+        quote: "Lincoln understood that this wasn't just about building an app—it was about giving desperate families hope. His parallel innovation approach brought enterprise-grade reliability to a social impact mission.",
+        author: 'Elton Bicalho',
+        role: 'Software Engineer, Bliik'
+      }
+    },
+    color: {
+      primary: 'amber',
+      secondary: 'orange',
+      light: 'from-amber-50 to-orange-50',
+      dark: 'dark:from-amber-950/20 dark:to-orange-950/20',
+      accent: 'bg-amber-500'
+    },
+    icon: 'tabler:puzzle'
+  },
+  {
+    id: 'doi',
+    company: 'U.S. Department of Interior',
+    tagline: 'Government Data Democratization',
+    industry: 'Federal Government',
+    duration: '12 months',
+    hero: {
+      title: 'Democratizing Government Data',
+      subtitle: 'Text-to-SQL AI Making 10+ Complex Systems Accessible to Everyone'
+    },
+    challenge: {
+      title: 'The Data Accessibility Gap',
+      points: [
+        'Park rangers needed SQL expertise to access visitor data',
+        '10+ legacy systems with incompatible query languages',
+        '2-week turnaround for simple data requests',
+        'Critical decisions delayed by data bottlenecks'
+      ],
+      impact: 'National Park Service managing 300M visitors with Stone Age data tools'
+    },
+    solution: {
+      title: 'Natural Language Data Platform',
+      approach: [
+        'Implemented Text-to-SQL AI using advanced NLP and semantic understanding',
+        'Built unified data layer abstracting 10+ backend systems',
+        'Created conversational interface allowing questions in plain English',
+        'Developed role-based access control with audit logging'
+      ],
+      technologies: ['Angular', '.NET Core', 'Semantic Kernel', 'PostgreSQL', 'OpenAI', 'xUnit']
+    },
+    implementation: {
+      phase1: {
+        title: 'System Integration',
+        description: 'Mapped schemas across 10+ systems, built unified API layer, created comprehensive test suite with 95% coverage'
+      },
+      phase2: {
+        title: 'AI Development',
+        description: 'Trained Text-to-SQL models on 50,000+ query patterns, achieved 91% first-try accuracy, implemented feedback loop for continuous improvement'
+      },
+      phase3: {
+        title: 'Deployment & Training',
+        description: 'Rolled out to 500+ users across 50 parks, conducted virtual training sessions, established 24/7 support system'
+      }
+    },
+    results: {
+      headline: 'Transforming Government Efficiency',
+      metrics: [
+        { value: '10+', label: 'Systems Unified', icon: 'tabler:database' },
+        { value: '91%', label: 'Query Accuracy', icon: 'tabler:brain' },
+        { value: '10x', label: 'Faster Data Access', icon: 'tabler:rocket' },
+        { value: '500+', label: 'Active Users', icon: 'tabler:users' }
+      ],
+      testimonial: {
+        quote: "Lincoln transformed how we interact with data. Rangers who never wrote a line of SQL are now pulling complex reports in seconds. This is innovation with purpose—technology serving public service.",
+        author: 'Mudassir Ahmad',
+        role: 'Technical Lead, U.S. DOI'
+      }
+    },
+    color: {
+      primary: 'blue',
+      secondary: 'indigo',
+      light: 'from-blue-50 to-indigo-50',
+      dark: 'dark:from-blue-950/20 dark:to-indigo-950/20',
+      accent: 'bg-blue-500'
+    },
+    icon: 'tabler:building-bank'
+  }
+];
+
+// For the initial view, we'll show summary cards
+const selectedStudy = caseStudies[0]; // Default to PreventX
+---
+
+<section id="case-studies" class="py-20 px-4 mx-auto max-w-7xl relative">
+  <!-- Section Header -->
+  <div class="text-center mb-16 scroll-fade-in">
+    <p class="text-sm font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wide mb-2">
+      Deep Dives
+    </p>
+    <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
+      How Parallel Innovation Works
+    </h2>
+    <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+      Real projects. Real challenges. Real results. See how cross-industry insights create breakthrough solutions.
+    </p>
+  </div>
+
+  <!-- Case Study Selector Cards -->
+  <div class="grid md:grid-cols-3 gap-6 mb-12 scroll-slide-up">
+    {caseStudies.map((study, index) => (
+      <button
+        data-study={study.id}
+        class={`
+          case-study-card group relative rounded-2xl p-6 text-left
+          bg-white dark:bg-gray-800/50
+          border-2 transition-all duration-300
+          hover:shadow-2xl hover:-translate-y-2
+          ${index === 0 
+            ? 'border-blue-400 dark:border-blue-600 shadow-xl' 
+            : 'border-gray-200 dark:border-gray-700 shadow-lg hover:border-blue-300 dark:hover:border-blue-700'}
+        `}
+        onclick={`document.querySelectorAll('.case-study-detail').forEach(el => el.style.display = 'none'); document.getElementById('study-${study.id}').style.display = 'block'; document.querySelectorAll('.case-study-card').forEach(el => el.classList.remove('border-blue-400', 'dark:border-blue-600', 'shadow-xl')); this.classList.add('border-blue-400', 'dark:border-blue-600', 'shadow-xl');`}
+      >
+        <!-- Icon -->
+        <div class={`inline-flex p-3 rounded-xl mb-4 bg-gradient-to-br ${study.color.light} ${study.color.dark}`}>
+          <Icon name={study.icon} class={`w-8 h-8 text-${study.color.primary}-600 dark:text-${study.color.primary}-400`} />
+        </div>
+        
+        <!-- Company & Industry -->
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">
+          {study.company}
+        </h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">
+          {study.industry} • {study.duration}
+        </p>
+        
+        <!-- Hero Title -->
+        <p class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+          {study.hero.title}
+        </p>
+        
+        <!-- Key Metrics Preview -->
+        <div class="flex gap-4 mb-4">
+          {study.results.metrics.slice(0, 2).map(metric => (
+            <div class="flex items-center gap-1">
+              <Icon name={metric.icon} class="w-4 h-4 text-gray-400" />
+              <span class="text-sm font-bold text-gray-900 dark:text-white">{metric.value}</span>
+            </div>
+          ))}
+        </div>
+        
+        <!-- View Details -->
+        <div class="flex items-center gap-2 text-sm font-semibold text-blue-600 dark:text-blue-400 group-hover:gap-3 transition-all">
+          View Full Case Study
+          <Icon name="tabler:arrow-right" class="w-4 h-4" />
+        </div>
+        
+        <!-- Active Indicator -->
+        {index === 0 && (
+          <div class="absolute -top-2 -right-2">
+            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-blue-500 text-white">
+              Featured
+            </span>
+          </div>
+        )}
+      </button>
+    ))}
+  </div>
+
+  <!-- Detailed Case Study Views -->
+  {caseStudies.map((study, index) => (
+    <div 
+      id={`study-${study.id}`}
+      class="case-study-detail"
+      style={index === 0 ? '' : 'display: none;'}
+    >
+      <!-- Hero Section -->
+      <div class={`rounded-3xl p-8 md:p-12 mb-12 bg-gradient-to-br ${study.color.light} ${study.color.dark} border-2 border-${study.color.primary}-200 dark:border-${study.color.primary}-800/50`}>
+        <div class="max-w-4xl">
+          <div class="flex items-center gap-3 mb-4">
+            <Icon name={study.icon} class={`w-10 h-10 text-${study.color.primary}-600 dark:text-${study.color.primary}-400`} />
+            <span class={`px-3 py-1 rounded-full text-sm font-semibold bg-${study.color.primary}-500 text-white`}>
+              {study.tagline}
+            </span>
+          </div>
+          <h3 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            {study.hero.title}
+          </h3>
+          <p class="text-xl text-gray-700 dark:text-gray-300">
+            {study.hero.subtitle}
+          </p>
+        </div>
+      </div>
+
+      <!-- Challenge Section -->
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+        <div class="bg-red-50 dark:bg-red-950/20 rounded-2xl p-8 border-2 border-red-200 dark:border-red-800/50">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="p-2 rounded-lg bg-red-100 dark:bg-red-900/30">
+              <Icon name="tabler:alert-triangle" class="w-6 h-6 text-red-600 dark:text-red-400" />
+            </div>
+            <h4 class="text-2xl font-bold text-gray-900 dark:text-white">
+              {study.challenge.title}
+            </h4>
+          </div>
+          <ul class="space-y-3 mb-6">
+            {study.challenge.points.map(point => (
+              <li class="flex items-start gap-3">
+                <Icon name="tabler:x" class="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
+                <span class="text-gray-700 dark:text-gray-300">{point}</span>
+              </li>
+            ))}
+          </ul>
+          <div class="p-4 bg-red-100 dark:bg-red-900/20 rounded-lg">
+            <p class="text-sm font-semibold text-red-700 dark:text-red-400">
+              Impact: {study.challenge.impact}
+            </p>
+          </div>
+        </div>
+
+        <!-- Solution Section -->
+        <div class={`bg-${study.color.primary}-50 dark:bg-${study.color.primary}-950/20 rounded-2xl p-8 border-2 border-${study.color.primary}-200 dark:border-${study.color.primary}-800/50`}>
+          <div class="flex items-center gap-3 mb-6">
+            <div class={`p-2 rounded-lg bg-${study.color.primary}-100 dark:bg-${study.color.primary}-900/30`}>
+              <Icon name="tabler:bulb" class={`w-6 h-6 text-${study.color.primary}-600 dark:text-${study.color.primary}-400`} />
+            </div>
+            <h4 class="text-2xl font-bold text-gray-900 dark:text-white">
+              {study.solution.title}
+            </h4>
+          </div>
+          <ul class="space-y-3 mb-6">
+            {study.solution.approach.map(approach => (
+              <li class="flex items-start gap-3">
+                <Icon name="tabler:check" class={`w-5 h-5 text-${study.color.primary}-500 mt-0.5 flex-shrink-0`} />
+                <span class="text-gray-700 dark:text-gray-300 text-sm">{approach}</span>
+              </li>
+            ))}
+          </ul>
+          <!-- Tech Stack -->
+          <div class="flex flex-wrap gap-2">
+            {study.solution.technologies.map(tech => (
+              <span class={`px-3 py-1 text-xs rounded-full bg-${study.color.primary}-100 dark:bg-${study.color.primary}-900/30 text-${study.color.primary}-700 dark:text-${study.color.primary}-300 font-semibold`}>
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Implementation Timeline -->
+      <div class="mb-12">
+        <h4 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+          Implementation Journey
+        </h4>
+        <div class="grid md:grid-cols-3 gap-6">
+          {Object.entries(study.implementation).map(([key, phase], idx) => (
+            <div class="relative">
+              {idx < 2 && (
+                <div class="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2">
+                  <Icon name="tabler:arrow-right" class="w-6 h-6 text-gray-400" />
+                </div>
+              )}
+              <div class="bg-white dark:bg-gray-800/50 rounded-xl p-6 border border-gray-200 dark:border-gray-700 h-full">
+                <div class={`inline-flex items-center justify-center w-10 h-10 rounded-full bg-${study.color.primary}-500 text-white font-bold mb-4`}>
+                  {idx + 1}
+                </div>
+                <h5 class="font-bold text-gray-900 dark:text-white mb-2">
+                  {phase.title}
+                </h5>
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                  {phase.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Results Section -->
+      <div class={`rounded-3xl p-8 md:p-12 bg-gradient-to-br ${study.color.light} ${study.color.dark} border-2 border-${study.color.primary}-200 dark:border-${study.color.primary}-800/50`}>
+        <h4 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">
+          {study.results.headline}
+        </h4>
+        
+        <!-- Metrics Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+          {study.results.metrics.map(metric => (
+            <div class="text-center">
+              <div class={`inline-flex p-3 rounded-xl bg-white/50 dark:bg-gray-900/30 mb-3`}>
+                <Icon name={metric.icon} class={`w-8 h-8 text-${study.color.primary}-600 dark:text-${study.color.primary}-400`} />
+              </div>
+              <div class={`text-3xl font-bold text-${study.color.primary}-600 dark:text-${study.color.primary}-400 mb-1`}>
+                {metric.value}
+              </div>
+              <div class="text-sm text-gray-600 dark:text-gray-400">
+                {metric.label}
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        <!-- Testimonial -->
+        {study.results.testimonial && (
+          <div class="bg-white/50 dark:bg-gray-900/30 rounded-2xl p-6 backdrop-blur-sm">
+            <Icon name="tabler:quote" class="w-8 h-8 text-gray-400 mb-4" />
+            <blockquote class="text-lg text-gray-700 dark:text-gray-300 mb-4">
+              "{study.results.testimonial.quote}"
+            </blockquote>
+            <div class="flex items-center gap-3">
+              <div class={`w-10 h-10 rounded-full bg-gradient-to-br from-${study.color.primary}-400 to-${study.color.primary}-600 flex items-center justify-center text-white font-bold`}>
+                {study.results.testimonial.author.split(' ').map(n => n[0]).join('')}
+              </div>
+              <div>
+                <div class="font-semibold text-gray-900 dark:text-white">
+                  {study.results.testimonial.author}
+                </div>
+                <div class="text-sm text-gray-500 dark:text-gray-400">
+                  {study.results.testimonial.role}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  ))}
+
+  <!-- CTA Section -->
+  <div class="mt-16 text-center">
+    <div class="bg-gradient-to-r from-purple-600 to-blue-600 rounded-3xl p-8 md:p-12">
+      <Icon name="tabler:rocket" class="w-16 h-16 text-white mx-auto mb-6" />
+      <h3 class="text-3xl font-bold text-white mb-4">
+        Ready to Write Your Success Story?
+      </h3>
+      <p class="text-xl text-white/90 max-w-3xl mx-auto mb-8">
+        These results aren't accidents—they're the outcome of parallel innovation. 
+        Let's apply these proven patterns to your challenges.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 bg-white text-purple-600 rounded-full font-bold hover:bg-gray-100 transition-all">
+          Start Your Project
+          <Icon name="tabler:arrow-right" class="w-5 h-5 ml-2" />
+        </a>
+        <a href="#work-with-me" class="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-full font-bold hover:bg-white/10 transition-all">
+          View Engagement Options
+          <Icon name="tabler:briefcase" class="w-5 h-5 ml-2" />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .case-study-card {
+    animation: fadeInUp 0.8s both;
+  }
+  
+  .case-study-card:nth-child(1) { animation-delay: 0.1s; }
+  .case-study-card:nth-child(2) { animation-delay: 0.2s; }
+  .case-study-card:nth-child(3) { animation-delay: 0.3s; }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .case-study-detail {
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+</style>

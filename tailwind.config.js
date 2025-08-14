@@ -20,6 +20,10 @@ export default {
         'ljb-purple': '#8b5cf6',
         'ljb-pink': '#ec4899',
         'ljb-green': '#10b981',
+        // Venture-specific colors
+        'healthcare-green': '#10b981',
+        'government-blue': '#3b82f6',
+        'social-amber': '#f59e0b',
       },
       fontFamily: {
         sans: ['var(--aw-font-sans, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
@@ -42,6 +46,10 @@ export default {
         'gradient-x': 'gradient-x 15s ease infinite',
         'gradient-y': 'gradient-y 15s ease infinite',
         'gradient-xy': 'gradient-xy 15s ease infinite',
+        'ticker': 'ticker 30s linear infinite',
+        'gradient': 'gradient 8s ease infinite',
+        'count-up': 'count-up 2s ease-out',
+        'pulse-soft': 'pulse-soft 3s infinite',
       },
 
       keyframes: {
@@ -106,6 +114,26 @@ export default {
             'background-size': '400% 400%',
             'background-position': 'left bottom',
           },
+        },
+        ticker: {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+        gradient: {
+          '0%, 100%': {
+            'background-image': 'linear-gradient(to right, #0ea5e9, #8b5cf6, #ec4899)',
+          },
+          '50%': {
+            'background-image': 'linear-gradient(to right, #ec4899, #0ea5e9, #8b5cf6)',
+          },
+        },
+        'count-up': {
+          '0%': { opacity: 0, transform: 'translateY(10px)' },
+          '100%': { opacity: 1, transform: 'translateY(0)' },
+        },
+        'pulse-soft': {
+          '0%, 100%': { opacity: 1 },
+          '50%': { opacity: 0.7 },
         },
       },
     },

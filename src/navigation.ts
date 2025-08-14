@@ -7,23 +7,36 @@ export const headerData = {
       href: getPermalink('/'),
     },
     {
-      text: 'Portfolio',
+      text: 'Current Ventures',
       links: [
         {
-          text: 'AI & Machine Learning',
-          href: getPermalink('/#ai-ml'),
+          text: 'All Projects',
+          href: getPermalink('/#ventures'),
         },
         {
-          text: 'Data Science',
-          href: getPermalink('/#data-science'),
+          text: 'PreventX AI',
+          href: getPermalink('/#preventx'),
         },
         {
-          text: 'Blazor Applications',
-          href: getPermalink('/#blazor'),
+          text: 'Bliik Platform',
+          href: getPermalink('/#bliik'),
         },
         {
-          text: 'MAUI Development',
-          href: getPermalink('/#maui'),
+          text: 'DOI Systems',
+          href: getPermalink('/#doi'),
+        },
+      ],
+    },
+    {
+      text: 'About',
+      links: [
+        {
+          text: 'Professional Profile',
+          href: getPermalink('/profile'),
+        },
+        {
+          text: 'About LJBLab',
+          href: getPermalink('/about'),
         },
       ],
     },
@@ -32,24 +45,11 @@ export const headerData = {
       href: getBlogPermalink(),
     },
     {
-      text: 'About',
-      links: [
-        {
-          text: 'About LJBLab',
-          href: getPermalink('/about'),
-        },
-        {
-          text: 'Professional Profile',
-          href: getPermalink('/profile'),
-        },
-      ],
-    },
-    {
       text: 'Contact',
       href: getPermalink('/contact'),
     },
   ],
-  actions: [{ text: 'Get Started', href: getPermalink('/contact'), variant: 'primary' }],
+  actions: [{ text: 'Work With Me', href: getPermalink('/#work-with-me'), variant: 'primary' }],
 };
 
 export const footerData = {

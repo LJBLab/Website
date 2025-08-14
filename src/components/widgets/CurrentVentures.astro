@@ -1,0 +1,197 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Venture {
+  name: string;
+  role: string;
+  description: string;
+  impact: {
+    number: string;
+    label: string;
+  };
+  color: string;
+  gradient: string;
+  bgLight: string;
+  icon: string;
+  status: string;
+  technologies: string[];
+  link?: string;
+}
+
+const ventures: Venture[] = [
+  {
+    name: 'PreventX AI',
+    role: 'Technical Architecture Lead',
+    description: 'Enterprise wellness platform using AI to reduce healthcare costs through predictive health analytics and personalized interventions.',
+    impact: {
+      number: '32',
+      label: '% Cost Reduction'
+    },
+    color: 'green',
+    gradient: 'from-green-500/10 to-emerald-600/10',
+    bgLight: 'from-green-50 to-emerald-50',
+    icon: 'tabler:heartbeat',
+    status: 'ACTIVE',
+    technologies: ['AI/ML', 'Azure', 'Blazor', '6-Factor Health'],
+    link: '#preventx'
+  },
+  {
+    name: 'Bliik Platform',
+    role: 'Platform Architect',
+    description: 'Digital ABA therapy platform revolutionizing autism care by connecting families with qualified therapists on-demand, like "Uber for ABA therapy".',
+    impact: {
+      number: '1000',
+      label: '+ Families Connected'
+    },
+    color: 'amber',
+    gradient: 'from-amber-500/10 to-orange-600/10',
+    bgLight: 'from-amber-50 to-orange-50',
+    icon: 'tabler:puzzle',
+    status: 'BUILDING',
+    technologies: ['.NET MAUI', 'Clean Architecture', 'HIPAA', 'Real-time Matching'],
+    link: '#bliik'
+  },
+  {
+    name: 'U.S. Department of Interior',
+    role: 'Senior Software Engineer',
+    description: 'Modernizing National Park Service systems with Text-to-SQL AI, making complex databases accessible to non-technical users through natural language.',
+    impact: {
+      number: '10',
+      label: '+ Systems Managed'
+    },
+    color: 'blue',
+    gradient: 'from-blue-500/10 to-indigo-600/10',
+    bgLight: 'from-blue-50 to-indigo-50',
+    icon: 'tabler:building-bank',
+    status: 'DEPLOYED',
+    technologies: ['Text-to-SQL', 'Angular', '.NET Core', 'xUnit'],
+    link: '#doi'
+  }
+];
+
+function getStatusColor(status: string) {
+  switch(status) {
+    case 'ACTIVE': return 'bg-green-500';
+    case 'BUILDING': return 'bg-amber-500';
+    case 'DEPLOYED': return 'bg-blue-500';
+    default: return 'bg-gray-500';
+  }
+}
+
+function getColorClasses(color: string) {
+  switch(color) {
+    case 'green': return 'border-green-200 dark:border-green-500/20 hover:border-green-300 dark:hover:border-green-500/40';
+    case 'amber': return 'border-amber-200 dark:border-amber-500/20 hover:border-amber-300 dark:hover:border-amber-500/40';
+    case 'blue': return 'border-blue-200 dark:border-blue-500/20 hover:border-blue-300 dark:hover:border-blue-500/40';
+    default: return 'border-gray-200 dark:border-gray-500/20 hover:border-gray-300 dark:hover:border-gray-500/40';
+  }
+}
+---
+
+<section id="ventures" class="py-16 px-4 mx-auto max-w-7xl bg-gray-50 dark:bg-transparent rounded-3xl">
+  <div class="text-center mb-12">
+    <h2 class="text-4xl font-bold mb-4 text-gray-900 dark:text-white">
+      Current Ventures
+    </h2>
+    <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+      Three parallel innovations, one vision: Making technology accessible where it matters most
+    </p>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-8">
+    {ventures.map((venture) => (
+      <article class={`venture-card relative bg-gradient-to-br ${venture.bgLight} dark:${venture.gradient} backdrop-blur-sm border ${getColorClasses(venture.color)} rounded-2xl p-6 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl shadow-lg`}>
+        <!-- Status Badge -->
+        <div class="absolute top-4 right-4">
+          <span class={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-semibold text-white ${getStatusColor(venture.status)}`}>
+            <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
+            {venture.status}
+          </span>
+        </div>
+
+        <!-- Icon & Title -->
+        <div class="mb-4">
+          <div class={`inline-flex p-3 rounded-xl bg-gradient-to-br ${venture.gradient} mb-4`}>
+            <Icon name={venture.icon} class="w-8 h-8" />
+          </div>
+          <h3 class="text-2xl font-bold mb-1 text-gray-900 dark:text-white">{venture.name}</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400 font-medium">{venture.role}</p>
+        </div>
+
+        <!-- Description -->
+        <p class="text-gray-600 dark:text-gray-300 mb-6 min-h-[80px]">
+          {venture.description}
+        </p>
+
+        <!-- Impact Metric -->
+        <div class="mb-6 p-4 bg-gray-100 dark:bg-gray-800/50 rounded-xl">
+          <div class="flex items-baseline gap-1">
+            <span class="text-3xl font-bold metric-number text-gray-900 dark:text-white" data-count={venture.impact.number}>
+              {venture.impact.number}
+            </span>
+            <span class="text-lg text-gray-600 dark:text-gray-400">
+              {venture.impact.label}
+            </span>
+          </div>
+        </div>
+
+        <!-- Technologies -->
+        <div class="flex flex-wrap gap-2 mb-6">
+          {venture.technologies.map((tech) => (
+            <span class="px-2 py-1 text-xs bg-gray-200 dark:bg-gray-800/50 text-gray-700 dark:text-gray-300 rounded-full">
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        <!-- Learn More -->
+        {venture.link && (
+          <a href={venture.link} class="inline-flex items-center gap-2 text-sm font-semibold text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:gap-3 transition-all">
+            Learn More
+            <Icon name="tabler:arrow-right" class="w-4 h-4" />
+          </a>
+        )}
+      </article>
+    ))}
+  </div>
+
+  <!-- Collaboration CTA -->
+  <div class="mt-12 text-center">
+    <p class="text-gray-600 dark:text-gray-400 mb-4">
+      Interested in parallel innovation for your organization?
+    </p>
+    <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full font-semibold text-white hover:from-blue-700 hover:to-purple-700 transition-all">
+      Let's Collaborate
+      <Icon name="tabler:arrow-right" class="w-5 h-5" />
+    </a>
+  </div>
+</section>
+
+<style>
+  .venture-card {
+    animation: fadeInUp 0.8s both;
+  }
+  
+  .venture-card:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  
+  .venture-card:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .venture-card:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

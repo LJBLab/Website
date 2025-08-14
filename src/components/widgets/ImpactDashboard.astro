@@ -1,0 +1,280 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Metric {
+  id: string;
+  value: number;
+  suffix: string;
+  label: string;
+  sublabel?: string;
+  icon: string;
+  color: string;
+  bgLight: string;
+  bgDark: string;
+  duration?: number; // Animation duration in ms
+}
+
+const metrics: Metric[] = [
+  {
+    id: 'healthcare-savings',
+    value: 32,
+    suffix: '%',
+    label: 'Healthcare Cost Reduction',
+    sublabel: 'PreventX AI Platform',
+    icon: 'tabler:trending-down',
+    color: 'text-green-600 dark:text-green-400',
+    bgLight: 'bg-gradient-to-br from-green-50 to-emerald-50',
+    bgDark: 'dark:bg-gradient-to-br dark:from-green-950/20 dark:to-emerald-950/20',
+    duration: 2000,
+  },
+  {
+    id: 'families-connected',
+    value: 1000,
+    suffix: '+',
+    label: 'Families Connected',
+    sublabel: 'Bliik Autism Care',
+    icon: 'tabler:users',
+    color: 'text-amber-600 dark:text-amber-400',
+    bgLight: 'bg-gradient-to-br from-amber-50 to-orange-50',
+    bgDark: 'dark:bg-gradient-to-br dark:from-amber-950/20 dark:to-orange-950/20',
+    duration: 2500,
+  },
+  {
+    id: 'systems-managed',
+    value: 10,
+    suffix: '+',
+    label: 'Government Systems',
+    sublabel: 'National Park Service',
+    icon: 'tabler:server',
+    color: 'text-blue-600 dark:text-blue-400',
+    bgLight: 'bg-gradient-to-br from-blue-50 to-indigo-50',
+    bgDark: 'dark:bg-gradient-to-br dark:from-blue-950/20 dark:to-indigo-950/20',
+    duration: 1500,
+  },
+  {
+    id: 'years-experience',
+    value: 10,
+    suffix: '+',
+    label: 'Years of Excellence',
+    sublabel: 'Parallel Innovation',
+    icon: 'tabler:award',
+    color: 'text-purple-600 dark:text-purple-400',
+    bgLight: 'bg-gradient-to-br from-purple-50 to-pink-50',
+    bgDark: 'dark:bg-gradient-to-br dark:from-purple-950/20 dark:to-pink-950/20',
+    duration: 1800,
+  },
+];
+
+// Additional mini metrics for extra impact
+const miniMetrics = [
+  { value: '3', label: 'Concurrent Ventures', icon: 'tabler:rocket' },
+  { value: '2x', label: 'Microsoft Certified', icon: 'tabler:certificate' },
+  { value: '50+', label: 'Projects Delivered', icon: 'tabler:check' },
+  { value: '25+', label: 'Technologies Mastered', icon: 'tabler:code' },
+];
+---
+
+<section id="impact" class="py-20 px-4 mx-auto max-w-7xl relative overflow-hidden">
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 opacity-5 dark:opacity-10">
+    <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%230ea5e9" fill-opacity="0.4"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+  </div>
+
+  <!-- Section Header -->
+  <div class="text-center mb-12 relative z-10 scroll-fade-in">
+    <p class="text-sm font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wide mb-2">
+      Measurable Results
+    </p>
+    <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
+      Impact by the Numbers
+    </h2>
+    <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+      Real metrics from real projects. Every number represents lives improved, costs saved, and systems modernized.
+    </p>
+  </div>
+
+  <!-- Main Metrics Grid -->
+  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 relative z-10 scroll-slide-up">
+    {metrics.map((metric, index) => (
+      <div 
+        class={`
+          metric-card relative overflow-hidden rounded-2xl p-6 
+          ${metric.bgLight} ${metric.bgDark}
+          border border-gray-200 dark:border-gray-700
+          shadow-lg hover:shadow-2xl
+          transform transition-all duration-500 hover:-translate-y-1
+          animate-fade-in-up
+        `}
+        style={`animation-delay: ${index * 100}ms`}
+      >
+        <!-- Icon Background -->
+        <div class="absolute top-0 right-0 -mt-4 -mr-4 opacity-10 dark:opacity-20">
+          <Icon name={metric.icon} class="w-32 h-32" />
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10">
+          <!-- Icon -->
+          <div class="mb-4">
+            <div class={`inline-flex p-3 rounded-xl bg-white/50 dark:bg-gray-900/30`}>
+              <Icon name={metric.icon} class={`w-6 h-6 ${metric.color}`} />
+            </div>
+          </div>
+
+          <!-- Number -->
+          <div class="mb-2">
+            <span 
+              class={`text-4xl md:text-5xl font-bold ${metric.color} metric-counter`}
+              data-target={metric.value}
+              data-suffix={metric.suffix}
+              data-duration={metric.duration}
+            >
+              0{metric.suffix}
+            </span>
+          </div>
+
+          <!-- Labels -->
+          <p class="font-semibold text-gray-900 dark:text-white">
+            {metric.label}
+          </p>
+          {metric.sublabel && (
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
+              {metric.sublabel}
+            </p>
+          )}
+        </div>
+
+        <!-- Decorative Element -->
+        <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-current to-transparent opacity-20"></div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Mini Metrics Bar -->
+  <div class="relative z-10">
+    <div class="bg-gray-100 dark:bg-gray-800/50 rounded-2xl p-6 backdrop-blur-sm">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        {miniMetrics.map((metric) => (
+          <div class="text-center">
+            <div class="flex justify-center mb-2">
+              <Icon name={metric.icon} class="w-5 h-5 text-gray-500 dark:text-gray-400" />
+            </div>
+            <div class="text-2xl font-bold text-gray-900 dark:text-white">
+              {metric.value}
+            </div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">
+              {metric.label}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Call to Action -->
+  <div class="mt-12 text-center relative z-10">
+    <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
+      These aren't just numbers—they're the result of parallel innovation and purposeful execution.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#ventures" class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold hover:from-blue-700 hover:to-purple-700 transition-all">
+        See How It's Done
+        <Icon name="tabler:arrow-down" class="w-5 h-5 ml-2" />
+      </a>
+      <a href="#contact" class="inline-flex items-center justify-center px-6 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-full font-semibold text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all">
+        Start Your Project
+        <Icon name="tabler:arrow-right" class="w-5 h-5 ml-2" />
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out both;
+  }
+
+  .metric-card {
+    position: relative;
+  }
+
+  .metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, currentColor, transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .metric-card:hover::before {
+    opacity: 0.5;
+    animation: shimmer 1s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+</style>
+
+<script>
+  // Animate counters when they come into view
+  document.addEventListener('DOMContentLoaded', () => {
+    const counters = document.querySelectorAll('.metric-counter');
+    
+    const animateCounter = (counter: Element) => {
+      const target = parseInt(counter.getAttribute('data-target') || '0');
+      const suffix = counter.getAttribute('data-suffix') || '';
+      const duration = parseInt(counter.getAttribute('data-duration') || '2000');
+      
+      let current = 0;
+      const increment = target / (duration / 16); // 60fps
+      
+      const updateCounter = () => {
+        current += increment;
+        
+        if (current < target) {
+          counter.textContent = Math.floor(current) + suffix;
+          requestAnimationFrame(updateCounter);
+        } else {
+          counter.textContent = target + suffix;
+        }
+      };
+      
+      updateCounter();
+    };
+
+    // Intersection Observer to trigger animation when in view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach(counter => {
+      observer.observe(counter);
+    });
+  });
+</script>

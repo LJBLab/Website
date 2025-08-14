@@ -9,43 +9,82 @@ import Content from '~/components/widgets/Content.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import Contact from '~/components/widgets/Contact.astro';
+import ContactCTA from '~/components/widgets/ContactCTA.astro';
+import ProjectTicker from '~/components/widgets/ProjectTicker.astro';
+import CurrentVentures from '~/components/widgets/CurrentVenturesV2.astro';
+import ImpactDashboard from '~/components/widgets/ImpactDashboard.astro';
+import CareerTimeline from '~/components/widgets/CareerTimeline.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import CaseStudies from '~/components/widgets/CaseStudies.astro';
 
 const metadata = {
-  title: 'LJBLab - Innovation Through Code',
+  title: 'LJBLab - Parallel Innovation Architect',
   ignoreTitleTemplate: true,
-  description: 'Pushing the boundaries of AI, data science, and modern application development with cutting-edge experiments and breakthrough solutions.',
+  description: 'Building AI where it matters most. Currently leading 3 concurrent ventures across Healthcare, Government, and Social Impact sectors.',
 };
 ---
 
 <Layout metadata={metadata}>
+  <!-- Project Ticker ******************* -->
+  <ProjectTicker />
+  
   <!-- Hero Widget ******************* -->
 
   <Hero
     actions={[
       {
         variant: 'primary',
-        text: 'Explore Projects',
-        href: '#portfolio',
-        icon: 'tabler:arrow-down-right',
+        text: 'Explore Current Ventures',
+        href: '#ventures',
+        icon: 'tabler:rocket',
       },
-      { text: 'Learn More', href: '#about' },
+      { text: 'Work With Me', href: '#contact' },
     ]}
   >
     <Fragment slot="title">
-      Senior Software Engineer <br />
-      <span class="text-accent dark:text-white">10+ Years of Excellence</span>
+      Building AI Where <br />
+      <span class="text-accent dark:text-white">It Matters Most</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      <span class="font-semibold">Lincoln Bicalho - Full Stack Developer</span> - Specializing in .NET, AI/ML, Cloud Architecture, 
-      and Enterprise Solutions. Currently engineering mission-critical systems for the U.S. Department of Interior.
+      <div class="mb-4">
+        <span class="font-bold text-lg">Parallel Innovation Architect</span> - 
+        Currently leading <span class="text-gray-100 font-semibold">3 concurrent AI ventures</span> across 
+        Healthcare, Government, and Social Impact sectors.
+      </div>
+      <div class="flex flex-wrap justify-center gap-4 text-sm">
+        <span class="flex items-center gap-1 px-3 py-1 bg-gray-800/50 rounded-full">
+          <span class="text-green-400/70 text-xs">●</span> PreventX AI
+        </span>
+        <span class="flex items-center gap-1 px-3 py-1 bg-gray-800/50 rounded-full">
+          <span class="text-amber-400/70 text-xs">●</span> Bliik Platform
+        </span>
+        <span class="flex items-center gap-1 px-3 py-1 bg-gray-800/50 rounded-full">
+          <span class="text-blue-400/70 text-xs">●</span> U.S. DOI Systems
+        </span>
+      </div>
     </Fragment>
   </Hero>
 
-  <!-- Note Widget ******************* -->
-
-  <Note />
+  <!-- Impact Dashboard ******************* -->
+  
+  <ImpactDashboard />
+  
+  <!-- Current Ventures Section ******************* -->
+  
+  <CurrentVentures />
+  
+  <!-- Career Timeline ******************* -->
+  
+  <CareerTimeline />
+  
+  <!-- Testimonials ******************* -->
+  
+  <Testimonials />
+  
+  <!-- Case Studies ******************* -->
+  
+  <CaseStudies />
 
   <!-- Portfolio/Features Widget *************** -->
 
@@ -94,19 +133,6 @@ const metadata = {
     ]}
   />
 
-  <!-- Stats Widget ****************** -->
-
-  <Stats
-    id="about"
-    title="Years of Technical Excellence"
-    subtitle="With extensive experience across enterprise and startup environments, we deliver cutting-edge solutions that blend artificial intelligence, advanced data analytics, and modern full-stack development."
-    stats={[
-      { title: 'Years Experience', amount: '10+' },
-      { title: 'Systems Managed', amount: '10+' },
-      { title: 'Technologies Mastered', amount: '25+' },
-      { title: 'Microsoft Certified', amount: '2x' },
-    ]}
-  />
 
   <!-- Features2 Widget ************** -->
 
@@ -160,6 +186,10 @@ const metadata = {
     tagline="Blog"
   />
 
+  <!-- Contact CTA Section *********** -->
+  
+  <ContactCTA />
+  
   <!-- CallToAction Widget *********** -->
 
   <CallToAction
@@ -167,7 +197,7 @@ const metadata = {
       {
         variant: 'primary',
         text: 'Get Started',
-        href: '/contact',
+        href: '#contact',
         icon: 'tabler:message-circle',
       },
     ]}

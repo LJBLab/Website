@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import './gradient.css';
+
 @layer base {
   :root {
     --ljb-gradient-1: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 100%);
