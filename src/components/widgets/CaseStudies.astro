@@ -188,24 +188,24 @@ const caseStudies: CaseStudy[] = [
     icon: 'tabler:puzzle'
   },
   {
-    id: 'doi',
-    company: 'U.S. Department of Interior',
+    id: 'federal',
+    company: 'U.S. Federal Government',
     tagline: 'Government Data Democratization',
-    industry: 'Federal Government',
+    industry: 'Federal Systems',
     duration: '12 months',
     hero: {
-      title: 'Democratizing Government Data',
-      subtitle: 'Text-to-SQL AI Making 10+ Complex Systems Accessible to Everyone'
+      title: 'Democratizing Federal Data',
+      subtitle: 'Text-to-SQL AI Making 10+ Critical Systems Accessible Across Agencies'
     },
     challenge: {
-      title: 'The Data Accessibility Gap',
+      title: 'The Federal Data Crisis',
       points: [
-        'Park rangers needed SQL expertise to access visitor data',
+        'Federal staff needed SQL expertise to access critical data',
         '10+ legacy systems with incompatible query languages',
         '2-week turnaround for simple data requests',
         'Critical decisions delayed by data bottlenecks'
       ],
-      impact: 'National Park Service managing 300M visitors with Stone Age data tools'
+      impact: 'Federal agencies managing critical operations with outdated data tools'
     },
     solution: {
       title: 'Natural Language Data Platform',
@@ -228,11 +228,11 @@ const caseStudies: CaseStudy[] = [
       },
       phase3: {
         title: 'Deployment & Training',
-        description: 'Rolled out to 500+ users across 50 parks, conducted virtual training sessions, established 24/7 support system'
+        description: 'Rolled out to 500+ users across multiple agencies, conducted virtual training sessions, established 24/7 support system'
       }
     },
     results: {
-      headline: 'Transforming Government Efficiency',
+      headline: 'Transforming Federal Efficiency',
       metrics: [
         { value: '10+', label: 'Systems Unified', icon: 'tabler:database' },
         { value: '91%', label: 'Query Accuracy', icon: 'tabler:brain' },
@@ -240,9 +240,9 @@ const caseStudies: CaseStudy[] = [
         { value: '500+', label: 'Active Users', icon: 'tabler:users' }
       ],
       testimonial: {
-        quote: "Lincoln transformed how we interact with data. Rangers who never wrote a line of SQL are now pulling complex reports in seconds. This is innovation with purpose—technology serving public service.",
+        quote: "Lincoln transformed how we interact with federal data. Staff who never wrote a line of SQL are now pulling complex reports in seconds. This is innovation with purpose—technology serving public service.",
         author: 'Mudassir Ahmad',
-        role: 'Technical Lead, U.S. DOI'
+        role: 'Technical Lead, Federal Systems'
       }
     },
     color: {
@@ -288,7 +288,7 @@ const selectedStudy = caseStudies[0]; // Default to PreventX
             ? 'border-blue-400 dark:border-blue-600 shadow-xl' 
             : 'border-gray-200 dark:border-gray-700 shadow-lg hover:border-blue-300 dark:hover:border-blue-700'}
         `}
-        onclick={`document.querySelectorAll('.case-study-detail').forEach(el => el.style.display = 'none'); document.getElementById('study-${study.id}').style.display = 'block'; document.querySelectorAll('.case-study-card').forEach(el => el.classList.remove('border-blue-400', 'dark:border-blue-600', 'shadow-xl')); this.classList.add('border-blue-400', 'dark:border-blue-600', 'shadow-xl');`}
+        onclick={`document.querySelectorAll('.case-study-detail').forEach(el => el.style.display = 'none'); document.getElementById('study-${study.id === 'federal' ? 'doi' : study.id}').style.display = 'block'; document.querySelectorAll('.case-study-card').forEach(el => el.classList.remove('border-blue-400', 'dark:border-blue-600', 'shadow-xl')); this.classList.add('border-blue-400', 'dark:border-blue-600', 'shadow-xl');`}
       >
         <!-- Icon -->
         <div class={`inline-flex p-3 rounded-xl mb-4 bg-gradient-to-br ${study.color.light} ${study.color.dark}`}>
@@ -339,7 +339,7 @@ const selectedStudy = caseStudies[0]; // Default to PreventX
   <!-- Detailed Case Study Views -->
   {caseStudies.map((study, index) => (
     <div 
-      id={`study-${study.id}`}
+      id={`study-${study.id === 'federal' ? 'doi' : study.id}`}
       class="case-study-detail"
       style={index === 0 ? '' : 'display: none;'}
     >
