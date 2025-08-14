@@ -1,0 +1,183 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Note from '~/components/widgets/Note.astro';
+import Features from '~/components/widgets/Features.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Content from '~/components/widgets/Content.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Contact from '~/components/widgets/Contact.astro';
+
+const metadata = {
+  title: 'LJBLab - Innovation Through Code',
+  ignoreTitleTemplate: true,
+  description: 'Pushing the boundaries of AI, data science, and modern application development with cutting-edge experiments and breakthrough solutions.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Explore Projects',
+        href: '#portfolio',
+        icon: 'tabler:arrow-down-right',
+      },
+      { text: 'Learn More', href: '#about' },
+    ]}
+  >
+    <Fragment slot="title">
+      Senior Software Engineer <br />
+      <span class="text-accent dark:text-white">10+ Years of Excellence</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="font-semibold">Lincoln Bicalho - Full Stack Developer</span> - Specializing in .NET, AI/ML, Cloud Architecture, 
+      and Enterprise Solutions. Currently engineering mission-critical systems for the U.S. Department of Interior.
+    </Fragment>
+  </Hero>
+
+  <!-- Note Widget ******************* -->
+
+  <Note />
+
+  <!-- Portfolio/Features Widget *************** -->
+
+  <Features
+    id="portfolio"
+    tagline="Our Expertise"
+    title="Innovation Portfolio"
+    subtitle="Cutting-edge experiments and developments across multiple domains"
+    items={[
+      {
+        title: 'AI & Machine Learning',
+        description:
+          'Text-to-SQL systems with Semantic Kernel, LangChain, CrewAI orchestration. Facial recognition platforms with 99.7% accuracy. Multi-agent systems and intelligent automation.',
+        icon: 'tabler:robot',
+      },
+      {
+        title: 'Data Science & Analytics',
+        description:
+          'Advanced analytics with Python (Pandas, NumPy, Matplotlib). Business intelligence dashboards, predictive modeling, and ETL pipelines processing millions of records.',
+        icon: 'tabler:chart-bar',
+      },
+      {
+        title: '.NET Enterprise Development',
+        description:
+          'Full-stack applications with ASP.NET Core, Blazor Server/WASM, Entity Framework. Clean Architecture, MVC patterns, and comprehensive xUnit testing.',
+        icon: 'tabler:bolt',
+      },
+      {
+        title: 'MAUI Development',
+        description:
+          'Cross-platform mobile and desktop applications using .NET MAUI, delivering native performance across iOS, Android, Windows, and macOS.',
+        icon: 'tabler:device-mobile',
+      },
+      {
+        title: 'Cloud & DevOps',
+        description:
+          'Microsoft Azure Developer Associate & DevOps Engineer Expert certified. Docker, Kubernetes, CI/CD pipelines, GitHub Actions, and Azure DevOps.',
+        icon: 'tabler:cloud',
+      },
+      {
+        title: 'API Development',
+        description:
+          'RESTful and GraphQL APIs built with modern frameworks, ensuring secure, efficient, and scalable backend services.',
+        icon: 'tabler:api',
+      },
+    ]}
+  />
+
+  <!-- Stats Widget ****************** -->
+
+  <Stats
+    id="about"
+    title="Years of Technical Excellence"
+    subtitle="With extensive experience across enterprise and startup environments, we deliver cutting-edge solutions that blend artificial intelligence, advanced data analytics, and modern full-stack development."
+    stats={[
+      { title: 'Years Experience', amount: '10+' },
+      { title: 'Systems Managed', amount: '10+' },
+      { title: 'Technologies Mastered', amount: '25+' },
+      { title: 'Microsoft Certified', amount: '2x' },
+    ]}
+  />
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="Technology Stack"
+    subtitle="Leveraging the latest technologies to build robust solutions"
+    tagline="Our Tools"
+    items={[
+      {
+        title: 'Languages & Frameworks',
+        description: 'C#, .NET Core/Framework, Python, JavaScript/TypeScript, Angular, React, Blazor',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'AI/ML Platforms',
+        description: 'Semantic Kernel, LangChain, CrewAI, Vanna AI, Claude Code, GitHub Copilot, TensorFlow',
+        icon: 'tabler:brain',
+      },
+      {
+        title: 'Data & Databases',
+        description: 'SQL Server, Oracle, MySQL, PostgreSQL, MongoDB, Pandas, NumPy, Data Warehouse',
+        icon: 'tabler:database',
+      },
+      {
+        title: 'Cloud & DevOps',
+        description: 'Azure, AWS, Docker, Kubernetes, CI/CD, GitHub Actions',
+        icon: 'tabler:cloud-computing',
+      },
+      {
+        title: 'Web Technologies',
+        description: 'Blazor, ASP.NET Core, SignalR, Entity Framework, REST/GraphQL',
+        icon: 'tabler:world',
+      },
+      {
+        title: 'Mobile Development',
+        description: '.NET MAUI, Xamarin, Progressive Web Apps, Native APIs',
+        icon: 'tabler:device-mobile-code',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- Latest Blog Posts ************* -->
+
+  <BlogLatestPosts
+    title="Latest Insights"
+    subtitle="Stay updated with our latest thoughts on technology, development practices, and innovation"
+    tagline="Blog"
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get Started',
+        href: '/contact',
+        icon: 'tabler:message-circle',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Let's Build Something <br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Amazing Together</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Ready to bring your ideas to life? Let's discuss your next innovative project.
+    </Fragment>
+  </CallToAction>
+</Layout>

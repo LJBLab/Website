@@ -1,0 +1,583 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Steps from '~/components/widgets/Steps.astro';
+
+const metadata = {
+  title: 'Lincoln Bicalho - Senior Software Engineer',
+  description: 'Seasoned Software Developer with over 10 years of experience in .NET, Full Stack Development, Cloud Architecture, AI/ML, and System Testing.',
+};
+---
+
+<Layout metadata={metadata}>
+  <style>
+    .timeline-container {
+      position: relative;
+      padding-left: 3rem;
+    }
+    .timeline-container::before {
+      content: '';
+      position: absolute;
+      left: 1rem;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, #0ea5e9, #8b5cf6);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.4rem;
+      top: 0.5rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #0ea5e9;
+      border: 2px solid white;
+      box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.2);
+    }
+    .skill-badge {
+      display: inline-block;
+      padding: 0.375rem 0.75rem;
+      margin: 0.25rem;
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(139, 92, 246, 0.1));
+      border: 1px solid rgba(14, 165, 233, 0.3);
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      transition: all 0.3s ease;
+    }
+    .skill-badge:hover {
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(139, 92, 246, 0.2));
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+    }
+    .experience-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
+    }
+    .experience-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      border-color: rgba(14, 165, 233, 0.5);
+    }
+    .certification-card {
+      background: linear-gradient(135deg, #0ea5e9, #8b5cf6);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      color: white;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .certification-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(14, 165, 233, 0.4);
+    }
+    .ai-project-card {
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      transition: all 0.3s ease;
+    }
+    .ai-project-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+    }
+  </style>
+
+  <!-- Hero Section with Gradient Background -->
+  <div class="relative bg-gradient-to-br from-ljb-dark via-ljb-secondary to-ljb-accent">
+    <div class="absolute inset-0 bg-tech-pattern opacity-10"></div>
+    <Hero>
+      <Fragment slot="title">
+        <span class="text-gradient">Lincoln Bicalho</span>
+      </Fragment>
+      <Fragment slot="subtitle">
+        <span class="text-2xl font-semibold block mb-4">Senior Software Engineer</span>
+        <span class="text-lg text-gray-300">
+          10+ Years Building Enterprise Solutions | .NET Expert | AI/ML Innovator | Cloud Architect
+        </span>
+        <div class="mt-6 flex justify-center gap-4">
+          <a href="mailto:bicalho_ljb@hotmail.com" class="btn btn-primary">Contact Me</a>
+          <a href="#experience" class="btn btn-secondary">View Experience</a>
+        </div>
+      </Fragment>
+    </Hero>
+  </div>
+
+  <!-- 1. Technical Expertise -->
+  <Features2
+    title="Technical Expertise"
+    subtitle="Comprehensive skill set across modern technology stack"
+    columns={3}
+    items={[
+      {
+        title: 'Languages & Frameworks',
+        description: 'C#, .NET Core/Framework, ASP.NET MVC, JavaScript, TypeScript, Python, SQL, Razor',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Frontend Technologies',
+        description: 'Angular, React, Blazor Server/WASM, jQuery, HTML5/CSS3, Bootstrap, USWDS',
+        icon: 'tabler:brush',
+      },
+      {
+        title: 'AI & Machine Learning',
+        description: 'Semantic Kernel, LangChain, CrewAI, Vanna AI, Claude, GitHub Copilot, TensorFlow, Computer Vision',
+        icon: 'tabler:brain',
+      },
+      {
+        title: 'Cloud & DevOps',
+        description: 'Azure, AWS, Docker, Kubernetes, CI/CD, GitHub Actions, Azure DevOps',
+        icon: 'tabler:cloud',
+      },
+      {
+        title: 'Databases',
+        description: 'SQL Server, Oracle, MySQL, PostgreSQL, MongoDB, Redis, Data Warehouse, Data Mining',
+        icon: 'tabler:database',
+      },
+      {
+        title: 'Testing & Quality',
+        description: 'xUnit, NUnit, MSTest, Selenium, Test-Driven Development, Code Reviews',
+        icon: 'tabler:test-pipe',
+      },
+    ]}
+  />
+
+  <!-- 2. Professional Experience Timeline -->
+  <div id="experience" class="py-16 px-6 mx-auto max-w-6xl">
+    <h2 class="text-3xl font-bold mb-12 text-center">Professional Experience</h2>
+    
+    <div class="timeline-container">
+      <!-- NuAxis Innovations / Department of Interior -->
+      <div class="timeline-item">
+        <div class="experience-card">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <h3 class="text-2xl font-bold text-gradient">Software Engineer</h3>
+              <p class="text-lg text-blue-400">NuAxis Innovations - U.S. Department of Interior</p>
+              <p class="text-sm text-gray-400">Washington, DC | February 2023 - Present (2 years 7 months)</p>
+            </div>
+            <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm">Current</span>
+          </div>
+          
+          <p class="mb-4 text-gray-300">
+            Full-stack Software Engineer specializing in system development for the Department of the Interior, 
+            with a focus on the National Park Service. Managing 10+ mission-critical systems serving millions of visitors annually.
+          </p>
+          
+          <div class="mb-4">
+            <h4 class="font-semibold mb-2 text-blue-400">Key Responsibilities:</h4>
+            <ul class="space-y-2 text-gray-300">
+              <li>• Client coordination for requirement gathering and analysis</li>
+              <li>• Full-stack web development using .NET framework with user-friendly interfaces</li>
+              <li>• Comprehensive testing using xUnit and deployment management</li>
+              <li>• Team collaboration across various departments for efficient project execution</li>
+            </ul>
+          </div>
+          
+          <div class="mb-4">
+            <h4 class="font-semibold mb-2 text-purple-400">Innovation Projects:</h4>
+            <ul class="space-y-2 text-gray-300">
+              <li>• <strong>Text-to-SQL AI System (2023-2025):</strong> Leading development of advanced Text-to-SQL system using Semantic Kernel, Blazor Server/WASM, CrewAI orchestration, Claude Code, GitHub Copilot, and Vanna AI. Building intelligent agents that convert natural language queries into complex SQL statements for non-technical users.</li>
+              <li>• <strong>Multi-Agent Systems:</strong> Implementing LangChain and CrewAI for intelligent agent orchestration, enabling automated workflows and decision-making processes across NPS systems.</li>
+              <li>• <strong>AI-Powered Development:</strong> Leveraging Claude Code and GitHub Copilot to accelerate development cycles and improve code quality across all 10+ managed systems.</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 class="font-semibold mb-2 text-blue-400">Technologies:</h4>
+            <div class="flex flex-wrap">
+              <span class="skill-badge">C#</span>
+              <span class="skill-badge">ASP.NET Core</span>
+              <span class="skill-badge">Entity Framework Core</span>
+              <span class="skill-badge">Angular</span>
+              <span class="skill-badge">Bootstrap</span>
+              <span class="skill-badge">USWDS</span>
+              <span class="skill-badge">RESTful WebServices</span>
+              <span class="skill-badge">Azure DevOps</span>
+              <span class="skill-badge">SQL Server</span>
+              <span class="skill-badge">Git</span>
+              <span class="skill-badge">xUnit</span>
+              <span class="skill-badge">Clean Architecture</span>
+              <span class="skill-badge">MVC</span>
+              <span class="skill-badge">jQuery</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ptec -->
+      <div class="timeline-item">
+        <div class="experience-card">
+          <div class="mb-4">
+            <h3 class="text-2xl font-bold">Software Engineer</h3>
+            <p class="text-lg text-cyan-400">Ptec</p>
+            <p class="text-sm text-gray-400">Cuiabá, Brazil | 2019 - October 2022 (3 years)</p>
+          </div>
+          
+          <p class="mb-4 text-gray-300">
+            Built sophisticated web and mobile applications for diverse clients. Developed ERP systems, 
+            industry-specific solutions for the plastic industry, and cutting-edge IoT integrations.
+          </p>
+          
+          <ul class="space-y-2 mb-4 text-gray-300">
+            <li>• Spearheaded ERP web development enhancing business processes</li>
+            <li>• Developed specialized software for plastic industry</li>
+            <li>• Machine integration & IoT solutions for automation</li>
+            <li>• Cloud-based solutions using Azure and Docker</li>
+          </ul>
+          
+          <div class="flex flex-wrap">
+            <span class="skill-badge">ASP.NET MVC</span>
+            <span class="skill-badge">.NET Core</span>
+            <span class="skill-badge">jQuery</span>
+            <span class="skill-badge">Azure</span>
+            <span class="skill-badge">Docker</span>
+            <span class="skill-badge">IoT</span>
+            <span class="skill-badge">SQL Server</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Atea Sistemas (E-Lege) -->
+      <div class="timeline-item">
+        <div class="experience-card">
+          <div class="mb-4">
+            <h3 class="text-2xl font-bold">Software Developer / Owner</h3>
+            <p class="text-lg text-purple-400">Atea Sistemas de Informacao Ltda (E-Lege)</p>
+            <p class="text-sm text-gray-400">Brazil | January 2017 - January 2020 (3 years 1 month)</p>
+          </div>
+          
+          <p class="mb-4 text-gray-300">
+            Developed E-Lege, a comprehensive Brazilian ERP software for politicians and political parties. 
+            Created innovative campaign management tools with data analytics and social engagement features.
+          </p>
+          
+          <ul class="space-y-2 mb-4 text-gray-300">
+            <li>• Political campaign software for managing campaigns, donations, and events</li>
+            <li>• Statistical models for unique voter profiling</li>
+            <li>• Geospatial data analytics for 360º view of electorate segments</li>
+            <li>• Predictive models for forecasting electorate demands</li>
+            <li>• Data warehouse, data mining, and business intelligence</li>
+          </ul>
+          
+          <div class="flex flex-wrap">
+            <span class="skill-badge">ASP.NET</span>
+            <span class="skill-badge">AngularJS</span>
+            <span class="skill-badge">C#</span>
+            <span class="skill-badge">SQL Server</span>
+            <span class="skill-badge">Oracle</span>
+            <span class="skill-badge">MySQL</span>
+            <span class="skill-badge">Azure</span>
+            <span class="skill-badge">.NET Core</span>
+            <span class="skill-badge">Google Maps API</span>
+            <span class="skill-badge">Social Media APIs</span>
+            <span class="skill-badge">Data Mining</span>
+            <span class="skill-badge">Business Intelligence</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ECO2 SISTEMAS -->
+      <div class="timeline-item">
+        <div class="experience-card">
+          <div class="mb-4">
+            <h3 class="text-2xl font-bold">Lead Software Development Engineer</h3>
+            <p class="text-lg text-green-400">Eco2 Sistemas</p>
+            <p class="text-sm text-gray-400">Cuiabá, Brazil | January 2016 - January 2018 (2 years 1 month)</p>
+          </div>
+          
+          <p class="mb-4 text-gray-300">
+            Led development of chain of custody software for certified wood tracking and innovative ERP applications 
+            for lumber industries. Ensured transparency and compliance from forest to store shelf.
+          </p>
+          
+          <ul class="space-y-2 mb-4 text-gray-300">
+            <li>• Chain of custody software for certified wood tracking</li>
+            <li>• Comprehensive ERP for lumber industries</li>
+            <li>• Financial management and supply chain solutions</li>
+            <li>• Complex database procedures, functions, triggers, and views</li>
+          </ul>
+          
+          <div class="flex flex-wrap">
+            <span class="skill-badge">ASP.NET</span>
+            <span class="skill-badge">ReactJS</span>
+            <span class="skill-badge">Xamarin.NET</span>
+            <span class="skill-badge">Azure</span>
+            <span class="skill-badge">.NET Core</span>
+            <span class="skill-badge">JavaScript</span>
+            <span class="skill-badge">VBScript</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Science Manager -->
+      <div class="timeline-item">
+        <div class="experience-card">
+          <div class="mb-4">
+            <h3 class="text-2xl font-bold">Data Science Manager</h3>
+            <p class="text-lg text-yellow-400">Assembleia Legislativa do Estado de Mato Grosso</p>
+            <p class="text-sm text-gray-400">Brazil | April 2016 - January 2017 (10 months)</p>
+          </div>
+          
+          <p class="mb-4 text-gray-300">
+            Led data science initiatives for state government, analyzing complex datasets from multiple agencies 
+            to drive policy decisions. Utilized Python libraries including Pandas, NumPy, and Matplotlib for 
+            advanced data manipulation and visualization. Built predictive models to forecast budget allocations 
+            and resource optimization.
+          </p>
+          
+          <ul class="space-y-2 mb-4 text-gray-300">
+            <li>• Processed millions of records using Python Pandas for data cleaning and transformation</li>
+            <li>• Created statistical models with NumPy and SciPy for trend analysis</li>
+            <li>• Developed interactive visualizations using Matplotlib and Seaborn</li>
+            <li>• Built ETL pipelines to consolidate data from 20+ government systems</li>
+            <li>• Generated automated reports and KPIs for legislative decision-making</li>
+            <li>• Implemented geospatial analysis using GeoPandas for district-level insights</li>
+          </ul>
+          
+          <div class="flex flex-wrap">
+            <span class="skill-badge">Python</span>
+            <span class="skill-badge">Pandas</span>
+            <span class="skill-badge">NumPy</span>
+            <span class="skill-badge">Matplotlib</span>
+            <span class="skill-badge">Seaborn</span>
+            <span class="skill-badge">SciPy</span>
+            <span class="skill-badge">GeoPandas</span>
+            <span class="skill-badge">Jupyter Notebooks</span>
+            <span class="skill-badge">Data Analytics</span>
+            <span class="skill-badge">Dashboard Development</span>
+            <span class="skill-badge">Data Visualization</span>
+            <span class="skill-badge">Business Intelligence</span>
+            <span class="skill-badge">ETL Processes</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- META TECNOLOGIA -->
+      <div class="timeline-item">
+        <div class="experience-card">
+          <div class="mb-4">
+            <h3 class="text-2xl font-bold">Software Developer / Owner</h3>
+            <p class="text-lg text-orange-400">MetaTI</p>
+            <p class="text-sm text-gray-400">Cuiabá, Brazil | January 2014 - January 2016 (2 years 1 month)</p>
+          </div>
+          
+          <p class="mb-4 text-gray-300">
+            Founded and led technology company specializing in advanced facial recognition systems. 
+            Pioneered biometric time clock solutions for government agencies and educational institutions, 
+            revolutionizing attendance management with 99.5% accuracy in face detection and recognition.
+          </p>
+          
+          <ul class="space-y-2 mb-4 text-gray-300">
+            <li>• Developed proprietary facial recognition algorithms with anti-spoofing capabilities</li>
+            <li>• Built cross-platform mobile applications for iOS and Android using Xamarin</li>
+            <li>• Implemented cloud-based biometric data storage with Azure services</li>
+            <li>• Created real-time attendance tracking systems for 50+ schools</li>
+            <li>• Integrated face detection with access control systems for secure facilities</li>
+            <li>• Achieved 200% company growth through government contracts</li>
+          </ul>
+          
+          <div class="flex flex-wrap">
+            <span class="skill-badge">Facial Recognition</span>
+            <span class="skill-badge">Computer Vision</span>
+            <span class="skill-badge">Biometrics</span>
+            <span class="skill-badge">Xamarin</span>
+            <span class="skill-badge">Android/iOS</span>
+            <span class="skill-badge">Azure Cognitive Services</span>
+            <span class="skill-badge">.NET Core</span>
+            <span class="skill-badge">OpenCV</span>
+            <span class="skill-badge">Machine Learning</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Plasmel -->
+      <div class="timeline-item">
+        <div class="experience-card">
+          <div class="mb-4">
+            <h3 class="text-2xl font-bold">Software Developer</h3>
+            <p class="text-lg text-cyan-400">Plasmel Indústria</p>
+            <p class="text-sm text-gray-400">June 2012 - January 2014 (1 year 8 months)</p>
+          </div>
+          
+          <p class="mb-4 text-gray-300">
+            Developed comprehensive industrial automation and business intelligence solutions for plastic manufacturing. 
+            Created UI designs, mobile applications, and facial recognition systems for employee management.
+            Built SSIS packages and reports using SQL Server Reporting Services for data analytics and visualization.
+          </p>
+          
+          <ul class="space-y-2 mb-4 text-gray-300">
+            <li>• Developed facial recognition system for time tracking and access control</li>
+            <li>• Created business intelligence dashboards for production monitoring</li>
+            <li>• Built mobile applications for inventory management</li>
+            <li>• Implemented SSIS ETL processes for data integration</li>
+            <li>• Generated automated reports using SSRS for management decisions</li>
+          </ul>
+          
+          <div class="flex flex-wrap">
+            <span class="skill-badge">ASP.NET</span>
+            <span class="skill-badge">HTML5</span>
+            <span class="skill-badge">Xamarin</span>
+            <span class="skill-badge">SSRS</span>
+            <span class="skill-badge">SSIS</span>
+            <span class="skill-badge">Facial Recognition</span>
+            <span class="skill-badge">BI Applications</span>
+            <span class="skill-badge">SQL Server</span>
+            <span class="skill-badge">Mobile Development</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- IT Technician -->
+      <div class="timeline-item">
+        <div class="experience-card">
+          <div class="mb-4">
+            <h3 class="text-2xl font-bold">Information Technology Technician</h3>
+            <p class="text-lg text-blue-400">Tribunal de Contas do Estado de Mato Grosso</p>
+            <p class="text-sm text-gray-400">November 2008 - June 2012 (3 years 8 months)</p>
+          </div>
+          
+          <p class="mb-4 text-gray-300">
+            Tests and system documentation. Quality assurance and technical documentation for government systems.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Core Competencies -->
+  <div class="py-16 px-6 mx-auto max-w-6xl">
+    <h2 class="text-3xl font-bold mb-8 text-center">Core Competencies</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="text-center p-6 rounded-xl bg-gradient-to-br from-blue-500/10 to-blue-600/10 border border-blue-500/20">
+        <div class="text-4xl mb-3">🔧</div>
+        <h3 class="font-bold text-lg mb-2">Full Stack Development</h3>
+        <p class="text-sm text-gray-300">10+ years in ASP.NET, C#, .NET frameworks, Angular, React, and modern web technologies</p>
+      </div>
+      <div class="text-center p-6 rounded-xl bg-gradient-to-br from-purple-500/10 to-purple-600/10 border border-purple-500/20">
+        <div class="text-4xl mb-3">🤖</div>
+        <h3 class="font-bold text-lg mb-2">AI & Innovation</h3>
+        <p class="text-sm text-gray-300">Cutting-edge AI systems, Text-to-SQL, Multi-Agent orchestration, Computer Vision, and ML models</p>
+      </div>
+      <div class="text-center p-6 rounded-xl bg-gradient-to-br from-green-500/10 to-green-600/10 border border-green-500/20">
+        <div class="text-4xl mb-3">☁️</div>
+        <h3 class="font-bold text-lg mb-2">Cloud & DevOps</h3>
+        <p class="text-sm text-gray-300">Azure certified, experienced with CI/CD, containerization, and modern deployment practices</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Microsoft Certifications & Education -->
+  <div class="py-16 px-6 mx-auto max-w-6xl">
+    <h2 class="text-3xl font-bold mb-8 text-center">Certifications & Education</h2>
+    
+    <!-- Certifications -->
+    <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
+      <div class="certification-card">
+        <div class="text-3xl mb-3">🏆</div>
+        <h3 class="font-bold text-xl mb-2">DevOps Engineer Expert</h3>
+        <p class="text-sm opacity-90">Microsoft Certified</p>
+      </div>
+      <div class="certification-card">
+        <div class="text-3xl mb-3">☁️</div>
+        <h3 class="font-bold text-xl mb-2">Azure Developer Associate</h3>
+        <p class="text-sm opacity-90">Microsoft Certified</p>
+      </div>
+    </div>
+    
+    <!-- Education -->
+    <div class="max-w-4xl mx-auto">
+      <h3 class="text-2xl font-bold mb-6 text-center">Education</h3>
+      <div class="space-y-4">
+        <div class="bg-gradient-to-r from-gray-800/50 to-gray-900/50 rounded-xl p-6">
+          <h4 class="font-bold text-lg text-blue-400">Bachelor in Software Engineering</h4>
+          <p class="text-gray-300">UniCesumar • 2018 - 2022</p>
+        </div>
+        <div class="bg-gradient-to-r from-gray-800/50 to-gray-900/50 rounded-xl p-6">
+          <h4 class="font-bold text-lg text-blue-400">Bachelor in Information Systems</h4>
+          <p class="text-gray-300">Unic - Universidade de Cuiabá • 2009 - 2012</p>
+          <p class="text-sm text-gray-400">Emphasis in Analysis and Web Development</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Summary of Qualifications -->
+  <Content
+    id="qualifications"
+    columns={1}
+  >
+    <Fragment slot="content">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold mb-8 text-center">Summary of Qualifications</h2>
+        <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl p-8 backdrop-blur-sm">
+          <ul class="space-y-4 text-lg">
+            <li class="flex items-start">
+              <span class="text-blue-400 mr-3">▸</span>
+              <span>Over 10 years of comprehensive experience in software analysis, design, development, implementation, and support of multi-tier applications</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-purple-400 mr-3">▸</span>
+              <span>Proficient as a .NET Developer, Full Stack Web Developer, and Database Specialist with extensive expertise in SQL Server</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-400 mr-3">▸</span>
+              <span>Expert in AI/ML technologies including Text-to-SQL systems, multi-agent orchestration, and computer vision applications</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-orange-400 mr-3">▸</span>
+              <span>Specialized in system testing and bug detection, with strong background in quality assurance processes</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-cyan-400 mr-3">▸</span>
+              <span>Proven track record in enterprise software, government systems, and innovative startup solutions</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-pink-400 mr-3">▸</span>
+              <span>Demonstrated expertise in data science, business intelligence, and predictive analytics</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </Fragment>
+  </Content>
+
+  <!-- Contact Information -->
+  <div class="py-16 px-6 mx-auto max-w-6xl">
+    <div class="text-center p-12 rounded-3xl bg-gradient-to-r from-blue-600 to-purple-600">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+        Let's Build Something Amazing Together
+      </h2>
+      <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+        With over a decade of experience in enterprise software development and cutting-edge AI innovation, 
+        I'm ready to help transform your vision into reality.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+        <a href="mailto:bicalho_ljb@hotmail.com" class="btn bg-white text-blue-600 hover:bg-gray-100 font-semibold px-8 py-4 rounded-full">
+          Email Me
+        </a>
+        <a href="https://linkedin.com/in/lincoln-bicalho" class="btn bg-transparent text-white border-2 border-white hover:bg-white hover:text-blue-600 font-semibold px-8 py-4 rounded-full">
+          Connect on LinkedIn
+        </a>
+      </div>
+      <div class="text-white/80 text-sm">
+        <p>📱 65 9922-62145 | 📧 bicalho_ljb@hotmail.com</p>
+        <p>📍 Germantown, Maryland, United States</p>
+      </div>
+    </div>
+  </div>
+</Layout>
