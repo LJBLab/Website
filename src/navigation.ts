@@ -22,8 +22,8 @@ export const headerData = {
           href: getPermalink('/#bliik'),
         },
         {
-          text: 'DOI Systems',
-          href: getPermalink('/#doi'),
+          text: 'Federal Systems',
+          href: getPermalink('/#federal'),
         },
       ],
     },
