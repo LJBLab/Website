@@ -12,7 +12,7 @@ tags:
   - data-protection
   - enterprise
 category: "AI Development"
-author: "Lincoln J Bicalho"
+author: Lincoln J Bicalho
 ---
 
 After implementing the Vanna AI interface we built in [Part 1](/blog/blazor-vanna-ai-natural-language-sql-queries), I faced a sobering realization during our first security audit. The auditor's question was simple but devastating: "So anyone can ask your AI to query any data in your database?"

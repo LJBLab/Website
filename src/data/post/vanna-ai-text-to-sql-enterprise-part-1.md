@@ -12,6 +12,7 @@ tags:
   - database
 metadata:
   canonical: https://ljblab.dev/vanna-ai-text-to-sql-enterprise-part-1
+author: Lincoln J Bicalho
 ---
 
 Three months ago, our business analysts were spending 40% of their time waiting for SQL queries to be written by our data team. Simple questions like "What were our top-performing products last quarter?" required a formal request, a two-day turnaround, and often multiple iterations to get the right data.

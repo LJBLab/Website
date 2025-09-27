@@ -11,6 +11,7 @@ tags:
   - devops
 metadata:
   canonical: https://ljblab.dev/deploying-vanna-ai-blazor-application-guide
+author: Lincoln J Bicalho
 ---
 
 After building the interface (Part 1) and implementing security (Part 2), it's time to deploy your Vanna AI + Blazor application to production. In this final part of our series, I'll walk you through deploying to Azure with proper configuration, security, and monitoring.

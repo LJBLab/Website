@@ -12,6 +12,7 @@ tags:
   - csharp
 metadata:
   canonical: https://ljblab.dev/building-blazor-vanna-ai-application-real-time-text-to-sql
+author: Lincoln J Bicalho
 ---
 
 After implementing text-to-SQL systems across multiple government databases, I've learned that the key to successful AI-powered query interfaces isn't just the AI model—it's building trust through transparency. When a compliance officer needs to understand how their natural language query became a SQL statement affecting thousands of records, confidence scores and validation workflows become critical.

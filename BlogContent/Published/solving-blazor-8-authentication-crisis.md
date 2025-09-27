@@ -12,13 +12,13 @@ tags:
   - Enterprise Development
 metadata:
   canonical: https://ljblab.dev/blog/solving-blazor-8-authentication-crisis
-author: Lincoln Bicalho
+author: Lincoln J Bicalho
 readingTime: 9
 ---
 
 "JavaScript interop calls cannot be issued at this time."
 
-If you've seen this error while implementing authentication in Blazor 8, you're not alone. What started as a simple JWT authentication task for our National Park Service systems turned into a week-long journey through the complexities of Blazor's hybrid rendering system. 
+If you've seen this error while implementing authentication in Blazor 8, you're not alone. What started as a simple JWT authentication task for our federal government systems turned into a week-long journey through the complexities of Blazor's hybrid rendering system. 
 
 I still remember staring at that error at 2 AM, coffee number five getting cold while I questioned every life choice that led me to Blazor 8's hybrid rendering model. The Microsoft docs were... optimistic. Stack Overflow was surprisingly quiet. And my deadline was approaching like a freight train.
 
@@ -38,7 +38,7 @@ Here's what I discovered the hard way:
 
 3. **Navigation Exceptions**: Use `NavigationManager.NavigateTo()` with `forceLoad: true` after authentication? Enjoy your "Navigation commands can not be issued during server-side prerendering" error.
 
-In my work with the National Park Service systems, these weren't just annoying bugs—they were showstoppers. We're talking about systems that handle millions of visitors' data annually. "It mostly works" wasn't going to cut it.
+In my work with federal government systems, these weren't just annoying bugs—they were showstoppers. We're talking about systems that handle millions of visitors' data annually. "It mostly works" wasn't going to cut it.
 
 ### The Business Impact
 
@@ -344,7 +344,7 @@ public async Task<IActionResult> Login([FromBody] LoginRequest request)
 
 ## Real-World Results
 
-After implementing this solution across our National Park Service systems:
+After implementing this solution across our federal government systems:
 
 - **Authentication errors dropped by 94%**
 - **Page load times improved by 2.3 seconds**
@@ -386,4 +386,4 @@ Let's discuss your specific requirements and get your authentication working fla
 
 ---
 
-*Lincoln Bicalho is a Senior Software Engineer specializing in Blazor and AI integration for government systems. With Azure Developer Associate and DevOps Engineer Expert certifications, he's currently modernizing National Park Service applications at the U.S. Department of Interior.*
+*Lincoln J Bicalho is a Senior Software Engineer specializing in Blazor and AI integration for government systems. With Azure Developer Associate and DevOps Engineer Expert certifications, he's currently modernizing federal government applications.*
