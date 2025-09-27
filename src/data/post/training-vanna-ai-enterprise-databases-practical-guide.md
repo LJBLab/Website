@@ -11,7 +11,7 @@ tags:
   - Database
   - Training
 category: AI & Machine Learning
-author: Lincoln Bicalho
+author: Lincoln J Bicalho
 image: ~/assets/images/vanna-training.jpg
 canonical: https://ljblab.dev/training-vanna-ai-enterprise-databases-practical-guide
 series: "Getting Started with Vanna AI"

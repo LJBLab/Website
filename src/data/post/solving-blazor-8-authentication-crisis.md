@@ -12,7 +12,7 @@ tags:
   - Enterprise Development
 metadata:
   canonical: https://ljblab.dev/blog/solving-blazor-8-authentication-crisis
-author: Lincoln Bicalho
+author: Lincoln J Bicalho
 draft: false
 ---
 
@@ -386,4 +386,4 @@ Let's discuss your specific requirements and get your authentication working fla
 
 ---
 
-*Lincoln Bicalho is a Senior Software Engineer specializing in Blazor and AI integration for government systems. With Azure Developer Associate and DevOps Engineer Expert certifications, he's currently modernizing federal government applications.*
+*Lincoln J Bicalho is a Senior Software Engineer specializing in Blazor and AI integration for government systems. With Azure Developer Associate and DevOps Engineer Expert certifications, he's currently modernizing federal government applications.*

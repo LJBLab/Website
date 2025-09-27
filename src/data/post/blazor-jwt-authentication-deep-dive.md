@@ -12,7 +12,7 @@ tags:
   - .NET 8
 metadata:
   canonical: https://ljblab.dev/blog/blazor-8-jwt-authentication-deep-dive
-author: Lincoln Bicalho
+author: Lincoln J Bicalho
 draft: false
 ---
 
@@ -1221,4 +1221,4 @@ I offer:
 
 *Next week in Part 3: "Securing Blazor for Government & Enterprise" - I'll show you exactly how we passed FedRAMP compliance and secured these systems for production deployment.*
 
-*Lincoln Bicalho is a Senior Software Engineer specializing in Blazor and AI integration for government systems. Currently modernizing federal government applications.*
+*Lincoln J Bicalho is a Senior Software Engineer specializing in Blazor and AI integration for government systems. Currently modernizing federal government applications.*

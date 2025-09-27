@@ -12,7 +12,7 @@ tags:
   - DevOps
 metadata:
   canonical: https://ljblab.dev/blog/blazor-production-security-government-enterprise
-author: Lincoln Bicalho
+author: Lincoln J Bicalho
 draft: false
 ---
 
@@ -1014,4 +1014,4 @@ Let's ensure your Blazor application meets the highest security standards. [Sche
 
 *This concludes our three-part series on Blazor 8 authentication. From solving the initial crisis, through complete implementation, to production security—you now have everything needed to build enterprise-grade authentication.*
 
-*Lincoln Bicalho is a Senior Software Engineer specializing in secure Blazor deployments for government systems. With Azure certifications and extensive experience in federal compliance, he's currently securing critical infrastructure for federal agencies.*
+*Lincoln J Bicalho is a Senior Software Engineer specializing in secure Blazor deployments for government systems. With Azure certifications and extensive experience in federal compliance, he's currently securing critical infrastructure for federal agencies.*

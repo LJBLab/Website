@@ -12,7 +12,7 @@ tags:
   - SaaS
 metadata:
   canonical: https://ljblab.dev/blog/building-multi-tenant-blazor-applications-that-scale-part-3
-author: Lincoln Bicalho
+author: Lincoln J Bicalho
 draft: false
 ---
 
@@ -420,4 +420,4 @@ Now you have the complete blueprint to make it happen.
 
 ---
 
-*Lincoln Bicalho is a Senior Software Engineer specializing in Blazor and enterprise architectures. With extensive experience in federal government systems, he's currently building multi-tenant solutions that serve thousands of users daily while pursuing his Master's degree in Software Engineering at the University of Maryland.*
+*Lincoln J Bicalho is a Senior Software Engineer specializing in Blazor and enterprise architectures. With extensive experience in federal government systems, he's currently building multi-tenant solutions that serve thousands of users daily while pursuing his Master's degree in Software Engineering at the University of Maryland.*

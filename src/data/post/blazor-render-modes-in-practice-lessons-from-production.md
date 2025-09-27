@@ -12,7 +12,7 @@ tags:
   - .NET 8
 metadata:
   canonical: https://ljblab.dev/blog/blazor-render-modes-in-practice-lessons-from-production
-author: Lincoln Bicalho
+author: Lincoln J Bicalho
 draft: false
 ---
 
@@ -357,4 +357,4 @@ Selecting the wrong render mode can cost months of development time. If you're b
 
 *Next week: "Building Multi-Tenant Blazor Applications That Scale" - Learn how to serve multiple clients from a single Blazor instance efficiently.*
 
-*Lincoln Bicalho is a Senior Software Engineer specializing in Blazor and AI integration for enterprise systems. Currently working on modernizing applications across startup and government sectors.*
+*Lincoln J Bicalho is a Senior Software Engineer specializing in Blazor and AI integration for enterprise systems. Currently working on modernizing applications across startup and government sectors.*
