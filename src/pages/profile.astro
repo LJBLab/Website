@@ -4,6 +4,7 @@ import Hero from '~/components/widgets/Hero.astro';
 import Content from '~/components/widgets/Content.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Steps from '~/components/widgets/Steps.astro';
+import StructuredData from '~/components/common/StructuredData.astro';
 
 const metadata = {
   title: 'Lincoln J Bicalho - Senior Software Engineer',
@@ -12,6 +13,7 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
+  <StructuredData type="Person" />
   <style>
     .timeline-container {
       position: relative;

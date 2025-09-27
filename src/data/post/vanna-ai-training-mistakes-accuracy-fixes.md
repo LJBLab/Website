@@ -1,7 +1,7 @@
 ---
 title: "10 Vanna AI Training Mistakes That Kill Accuracy (And How to Fix Them)"
 description: "Learn from real-world experience: common Vanna AI training pitfalls that destroy query accuracy and the specific fixes that actually work in production."
-publishDate: "2025-01-14"
+publishDate: 2025-01-14
 tags: ["AI", "SQL", "Vanna AI", "Data Engineering", "Machine Learning"]
 draft: false
 heroImage: ""

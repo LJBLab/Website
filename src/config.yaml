@@ -1,17 +1,19 @@
 site:
-  name: LJBLab
+  name: LJBLab - Lincoln J Bicalho
   site: 'https://ljblab.dev'
   base: '/'
   trailingSlash: false
+  author: 'Lincoln J Bicalho'
 
   googleSiteVerificationId: orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M
 
 # Default SEO metadata
 metadata:
   title:
-    default: LJBLab - Innovation Through Code
-    template: '%s — LJBLab'
-  description: "Pushing the boundaries of AI, data science, and modern application development with cutting-edge experiments and breakthrough solutions."
+    default: Lincoln J Bicalho - Senior Software Engineer & AI Architect | LJBLab
+    template: '%s — Lincoln J Bicalho | LJBLab'
+  description: "Lincoln J Bicalho's portfolio showcasing AI/ML expertise, enterprise Blazor development, and federal government system modernization. Senior Software Engineer with 10+ years building production systems."
+  author: 'Lincoln J Bicalho'
   robots:
     index: true
     follow: true

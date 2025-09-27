@@ -1,0 +1,104 @@
+---
+export interface Props {
+  type?: 'Person' | 'Article' | 'WebSite';
+  articleData?: {
+    headline: string;
+    datePublished: string;
+    dateModified?: string;
+    description: string;
+    image?: string;
+    keywords?: string[];
+  };
+}
+
+const { type = 'Person', articleData } = Astro.props;
+
+// Person schema for author pages and general site
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Lincoln J Bicalho",
+  "alternateName": "Lincoln Bicalho",
+  "jobTitle": "Senior Software Engineer",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "NuAxis Innovations"
+  },
+  "alumniOf": {
+    "@type": "Organization",
+    "name": "University of Maryland"
+  },
+  "email": "lincoln@ljblab.dev",
+  "url": "https://ljblab.dev",
+  "sameAs": [
+    "https://github.com/lincolnbicalho",
+    "https://www.linkedin.com/in/lincolnbicalho",
+    "https://twitter.com/ljblab"
+  ],
+  "knowsAbout": [
+    "Artificial Intelligence",
+    "Machine Learning",
+    "Software Engineering",
+    "Cloud Computing",
+    "Azure",
+    ".NET Development",
+    "Blazor",
+    "Government Technology",
+    "Multi-Agent Systems",
+    "Text-to-SQL",
+    "Federal Systems"
+  ],
+  "description": "Senior Software Engineer with 10+ years of experience specializing in AI/ML integration, government digital transformation, and enterprise system modernization."
+};
+
+// Website schema for homepage
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "LJBLab - Lincoln J Bicalho",
+  "alternateName": "LJBLab",
+  "url": "https://ljblab.dev",
+  "author": personSchema,
+  "description": "Lincoln J Bicalho's portfolio showcasing AI/ML expertise, enterprise Blazor development, and federal government system modernization.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://ljblab.dev/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+};
+
+// Article schema for blog posts
+const articleSchema = articleData ? {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": articleData.headline,
+  "datePublished": articleData.datePublished,
+  "dateModified": articleData.dateModified || articleData.datePublished,
+  "author": personSchema,
+  "publisher": {
+    "@type": "Person",
+    "name": "Lincoln J Bicalho",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ljblab.dev/favicon.svg"
+    }
+  },
+  "description": articleData.description,
+  "image": articleData.image || "https://ljblab.dev/assets/images/default.png",
+  "keywords": articleData.keywords?.join(", "),
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": Astro.url.href
+  }
+} : null;
+
+// Select appropriate schema based on type
+let selectedSchema = personSchema;
+if (type === 'WebSite') {
+  selectedSchema = websiteSchema;
+} else if (type === 'Article' && articleSchema) {
+  selectedSchema = articleSchema;
+}
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(selectedSchema)} />
