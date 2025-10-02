@@ -3,11 +3,11 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 import Content from '~/components/widgets/Content.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Hero from '~/components/widgets/Hero.astro';
-import Testimonials from '~/components/widgets/Testimonials.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'Services',
+  title: 'AI/ML Development & Enterprise Solutions | Lincoln J Bicalho',
+  description: 'Expert AI/ML integration, Blazor enterprise development, and federal system modernization services. Multi-agent orchestration, Text-to-SQL systems, and government-compliant applications.',
 };
 ---
 
@@ -15,74 +15,61 @@ const metadata = {
   <!-- Hero Widget ******************* -->
 
   <Hero
-    tagline="Services"
-    title="Elevate your projects with our stunning templates"
-    subtitle="Explore our meticulously crafted templates tailored to various industries and purposes. From captivating presentations to functional website designs, we offer the tools you need to succeed."
-    actions={[{ variant: 'primary', target: '_blank', text: 'Start exploring', href: '/' }]}
+    tagline="Enterprise AI & Government Solutions"
+    title="Production-Ready AI/ML Integration for Federal and Enterprise Systems"
+    subtitle="Specializing in multi-agent orchestration, Blazor enterprise architecture, and federal system modernization. Building scalable, compliant solutions that solve real-world problems at government scale."
+    actions={[
+      { variant: 'primary', text: 'Schedule Consultation', href: '/contact' },
+      { text: 'View Case Studies', href: '/blog' }
+    ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-      alt: 'AstroWind Hero Image',
+      src: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
+      alt: 'AI and Enterprise Development',
     }}
   />
 
   <!-- Features2 Widget ************** -->
 
   <Features2
-    title="Explore our diverse templates"
-    subtitle="Discover our selection below to streamline and elevate your projects."
+    title="Core Service Offerings"
+    subtitle="Proven expertise in AI/ML systems, enterprise development, and government modernization"
     columns={3}
     items={[
       {
-        title: 'Educational',
+        title: 'AI/ML Development & Integration',
         description:
-          'By harmonizing instructional design and visual appeal, templates streamline content creation for varied materials, expediting development and cultivating engaging educational spaces.',
-        icon: 'tabler:school',
+          'Production-ready AI systems using Semantic Kernel, LangChain, and CrewAI. Specializing in Text-to-SQL solutions with Vanna AI, multi-agent orchestration, and enterprise AI implementation with built-in verification and confidence scoring.',
+        icon: 'tabler:brain',
       },
       {
-        title: 'Interior Design',
+        title: 'Blazor Enterprise Architecture',
         description:
-          'Crafting functional, visually appealing spaces for residential and commercial use. Templates emphasize layout, colors, and furniture setups, offering a versatile toolkit for your design vision.',
-        icon: 'tabler:home-star',
+          'Multi-tenant Blazor applications supporting large-scale deployments. Expertise in hybrid storage patterns, Zero-Trust authentication, and government-compliant architectures proven in production environments.',
+        icon: 'tabler:layout-dashboard',
       },
       {
-        title: 'Photography',
-        description: `Empowering photographers, our templates facilitate captivating storytelling. With a keen focus on layout, galleries, and typography, they cater to both professionals and enthusiasts.`,
-        icon: 'tabler:photo',
-      },
-      {
-        title: 'E-commerce',
+        title: 'Legacy System Modernization',
         description:
-          'Developing engaging online stores, our E-commerce templates ensure a dynamic presence to effectively showcase products. Ideal for startups or revamps.',
-        icon: 'tabler:shopping-cart',
+          'Federal system transformation from legacy platforms to modern .NET Core and Azure cloud architecture. Compliance-focused migrations with FedRAMP and FISMA certification support.',
+        icon: 'tabler:refresh',
       },
       {
-        title: 'Blog',
+        title: 'Database Intelligence Systems',
         description:
-          'With attention to typography, these templates empower effective content presentation for writers at any stage, ensuring visually engaging and user-friendly blogs.',
-        icon: 'tabler:article',
+          'Text-to-SQL systems that convert natural language to accurate database queries. Enterprise-grade implementations with confidence scoring, query validation, and support for complex multi-table operations.',
+        icon: 'tabler:database-search',
       },
       {
-        title: 'Business',
+        title: 'Azure Cloud Architecture',
         description:
-          'Providing polished options for effective visual communication, these templates empower both startups and established companies for a professional brand presence.',
-        icon: 'tabler:building-store',
+          'Enterprise cloud solutions leveraging Azure services with a focus on government compliance. Azure Developer Associate and DevOps Engineer Expert certified with hands-on production experience.',
+        icon: 'tabler:cloud',
       },
       {
-        title: 'Branding',
+        title: 'Government Compliance Consulting',
         description:
-          'Offering pre-designed elements for a consistent brand identity, including logos and marketing materials. Ideal for new ventures or revamps.',
-        icon: 'tabler:arrow-big-up-lines',
-      },
-      {
-        title: 'Medical',
-        description: `From presentations to patient forms, these tools enhance communication effectiveness for healthcare professionals. Ideal for medical practices and research pursuits.`,
-        icon: 'tabler:vaccine',
-      },
-      {
-        title: 'Fashion Design',
-        description:
-          'With attention to detail, customization, and contemporary design, they empower designers to showcase ideas cohesively. Ideal for all levels of designers.',
-        icon: 'tabler:tie',
+          'Navigate FedRAMP, FISMA, and federal security requirements. Practical guidance based on experience passing multiple government audits and maintaining compliant production systems.',
+        icon: 'tabler:shield-check',
       },
     ]}
   />
@@ -93,37 +80,38 @@ const metadata = {
     isReversed
     items={[
       {
-        title: 'High-Quality Designs',
+        title: 'Battle-Tested Architecture',
         description:
-          'Our templates feature top-tier designs that ensure a professional and polished appearance for your projects.',
-        icon: 'tabler:wand',
+          'Solutions proven in production environments managing government systems. Every architecture pattern and implementation approach has been validated in real-world deployments.',
+        icon: 'tabler:checkup-list',
       },
       {
-        title: 'Customization Tools',
+        title: 'AI with Human Oversight',
         description:
-          'Tailor each template to your unique needs with user-friendly customization tools that let you personalize colors, fonts, and content.',
-        icon: 'tabler:settings',
+          'AI systems designed with verification layers, confidence scoring, and human validation. We build AI tools that assist experts, not replace them.',
+        icon: 'tabler:user-check',
       },
       {
-        title: 'Pre-Designed Elements',
+        title: 'Compliance-First Development',
         description:
-          'Save time and effort with our ready-to-use elements, including graphics, icons, and layouts that enhance the visual appeal of your creations.',
-        icon: 'tabler:presentation',
+          'Government and enterprise security requirements integrated from day one. Experience with FedRAMP, FISMA, and federal audit processes.',
+        icon: 'tabler:certificate',
       },
       {
-        title: 'Preview and Mockup Views',
+        title: 'Production Monitoring',
         description:
-          'Visualize the final outcome before making any changes using our preview and mockup views, ensuring your projects meet your expectations.',
-        icon: 'tabler:carousel-horizontal',
+          'Comprehensive observability and monitoring strategies for AI/ML systems. Built-in logging, performance tracking, and error analysis for enterprise deployments.',
+        icon: 'tabler:chart-line',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1525909002-1b05e0c869d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
-      alt: 'Features Image',
+      src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80',
+      alt: 'Enterprise Development Process',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Main Features</h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Our Development Approach</h3>
+      <p class="text-muted">Building production-ready systems with enterprise reliability and government-grade security.</p>
     </Fragment>
   </Content>
 
@@ -133,92 +121,117 @@ const metadata = {
     isAfterContent
     items={[
       {
-        title: 'Time Savings',
+        title: 'Scalable Architecture',
         description:
-          'Streamline your workflow, enabling you to create stunning materials efficiently and allocate more time to your core tasks.',
-        icon: 'tabler:clock',
+          'Multi-tenant systems designed to scale. Our implementations support enterprise-level user loads while maintaining performance and security isolation.',
+        icon: 'tabler:trending-up',
       },
       {
-        title: 'Professional Appearance',
+        title: 'Real-World Testing',
         description:
-          'Elevate your projects with the polished and sophisticated look that our templates provide, making a lasting impression on your audience.',
+          'AI/ML systems validated against production scenarios, edge cases, and failure conditions. We measure accuracy, track confidence scores, and implement continuous improvement.',
+        icon: 'tabler:test-pipe',
+      },
+      {
+        title: 'Knowledge Transfer',
+        description:
+          'Comprehensive documentation and team training ensures your staff can maintain and extend the solutions we build. We create self-sufficient teams, not dependencies.',
         icon: 'tabler:school',
       },
       {
-        title: 'Cost-Efficiency',
+        title: 'Ongoing Support',
         description:
-          'Benefit from cost savings by avoiding the need for custom design work, as our templates offer professional-grade designs at a fraction of the cost.',
-        icon: 'tabler:coin',
-      },
-      {
-        title: 'Instant Download',
-        description:
-          'Enjoy immediate access to your chosen templates upon purchase, enabling you to begin working on your projects without delay.',
-        icon: 'tabler:file-download',
+          'Post-deployment support for AI model retraining, performance optimization, and system enhancements. We partner with you for long-term success.',
+        icon: 'tabler:headset',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1552664688-cf412ec27db2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-      alt: 'Benefits Image',
+      src: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=774&q=80',
+      alt: 'Technical Consulting',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Benefits</h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Value Delivery</h3>
+      <p class="text-muted">From architecture to deployment, we ensure sustainable solutions that grow with your organization.</p>
     </Fragment>
   </Content>
 
-  <!-- Testimonials Widget *********** -->
+  <!-- Technical Expertise Section -->
 
-  <Testimonials
-    title="Words from real customers"
-    testimonials={[
+  <Content
+    isReversed
+    tagline="Technology Stack"
+    title="Enterprise-Grade Tools & Frameworks"
+    items={[
       {
-        testimonial: `The designs are not only visually appealing but also highly professional. The templates have saved me a significant amount of time while helping me make a lasting impression on my clients.`,
-        name: 'Emily Kennedy',
-        job: 'Front-end developer',
-        image: {
-          src: 'https://images.unsplash.com/photo-1618835962148-cf177563c6c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=930&q=80',
-          alt: 'Emily Kennedy Image',
-        },
+        title: 'AI/ML Frameworks',
+        description: 'Semantic Kernel, LangChain, CrewAI, Vanna AI, Claude Code, GitHub Copilot',
       },
       {
-        testimonial: `It beautifully showcases my work, with its clean and elegant design that lets my photographs shine. Customization was a breeze, even for a non-tech person like me. The result is a professional and immersive portfolio that's garnered numerous compliments.`,
-        name: 'Sarah Hansen',
-        job: 'Photographer',
-        image: {
-          src: 'https://images.unsplash.com/photo-1561406636-b80293969660?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-          alt: 'Sarah Hansen Image',
-        },
+        title: 'Application Development',
+        description: '.NET Core 8, ASP.NET MVC, Blazor Server/WASM/Hybrid, Angular, React',
       },
       {
-        testimonial: `I discovered these templates and I'm impressed by their variety and quality. They've helped me establish a consistent brand image across my marketing and social platforms, elevating my business's overall appearance.`,
-        name: 'Mark Wilkinson',
-        job: 'Small business owner',
-        image: {
-          src: 'https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=824&q=80',
-          alt: 'Mark Wilkinson Image',
-        },
+        title: 'Database Systems',
+        description: 'SQL Server, Oracle, PostgreSQL, MySQL, MongoDB - Text-to-SQL expertise',
+      },
+      {
+        title: 'Cloud & DevOps',
+        description: 'Azure (Developer Associate & DevOps Expert), CI/CD pipelines, Infrastructure as Code',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80',
+      alt: 'Technology Stack',
+    }}
+  />
+
+  <!-- Case Study Callout -->
+
+  <Content
+    tagline="Proven Results"
+    title="Real-World Implementation Examples"
+    subtitle="See how we've helped organizations transform their systems"
+    items={[
+      {
+        title: 'Multi-Tenant Blazor Architecture',
+        description: 'Enterprise multi-tenant system with hybrid authentication, database-per-tenant isolation, and Zero-Trust security. Handles high-volume production workloads with strong reliability.',
+      },
+      {
+        title: 'Text-to-SQL AI System',
+        description: 'Natural language database querying with Vanna AI. Multi-agent orchestration for complex queries, built-in validation, and confidence scoring for enterprise data access.',
+      },
+      {
+        title: 'Federal System Modernization',
+        description: 'Legacy VB.NET to .NET Core migration for government systems. FedRAMP-compliant architecture with Azure cloud deployment and modern security patterns.',
       },
     ]}
     callToAction={{
-      target: '_blank',
-      text: 'More testimonials...',
-      href: 'https://github.com/onwidget/astrowind',
+      text: 'Read Full Case Studies',
+      href: '/blog',
       icon: 'tabler:chevron-right',
     }}
-  />
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
 
   <!-- CallToAction Widget *********** -->
 
   <CallToAction
+    title="Ready to Build Production-Ready AI/ML Solutions?"
+    subtitle="Let's discuss how AI integration, Blazor enterprise architecture, or legacy modernization can transform your systems. Schedule a consultation to explore your specific requirements."
     actions={[
       {
         variant: 'primary',
-        text: 'Start exploring',
-        href: '/',
+        text: 'Schedule Consultation',
+        href: '/contact',
+      },
+      {
+        text: 'View Technical Blog',
+        href: '/blog',
       },
     ]}
-    title="Dive into our template collection"
-    subtitle="Whether you're in business, design, or education, our templates are here to elevate your projects."
   />
 </Layout>

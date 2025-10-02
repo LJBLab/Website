@@ -5,256 +5,297 @@ import Features2 from '~/components/widgets/Features2.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Steps2 from '~/components/widgets/Steps2.astro';
 import Stats from '~/components/widgets/Stats.astro';
-import Content from '~/components/widgets/Content.astro';
 
 const metadata = {
-  title: 'About LJBLab - Innovation Through Code',
-  description: 'Learn about LJBLab\'s mission to push the boundaries of technology through AI, data science, and modern application development.',
+  title: 'About Lincoln J Bicalho - Software Engineer & AI Integration Specialist',
+  description: 'Learn about Lincoln J Bicalho\'s journey in enterprise software development, AI/ML integration, and government digital transformation. 10+ years experience, Azure certified, managing federal systems.',
 };
 ---
 
 <Layout metadata={metadata}>
   <!-- Hero Section -->
   <Hero
-    tagline="About LJBLab"
+    tagline="About Me"
   >
     <Fragment slot="title">
-      Transforming Ideas into <br />
-      <span class="text-accent dark:text-white">Digital Excellence</span>
+      Building Production Systems <br />
+      <span class="text-accent dark:text-white">That Scale</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      <span class="text-2xl mb-4 block font-semibold">Welcome to LJBLab</span>
-      Where cutting-edge technology meets practical solutions. We're not just developers – we're innovators, 
-      problem-solvers, and digital architects building the future of technology.
+      <span class="text-2xl mb-4 block font-semibold">Lincoln J Bicalho</span>
+      Software Engineer at NuAxis Innovations, specializing in AI/ML integration, enterprise Blazor development,
+      and government digital transformation. Currently pursuing a Master's in Software Engineering at the University of Maryland.
     </Fragment>
   </Hero>
 
   <!-- Stats Section -->
   <Stats
-    title="Our Impact in Numbers"
-    subtitle="Measurable results that speak for themselves"
+    title="Experience Markers"
+    subtitle="Verifiable production experience"
     stats={[
-      { title: 'Projects Delivered', amount: '50+' },
-      { title: 'Lines of Code', amount: '2M+' },
-      { title: 'Client Satisfaction', amount: '98%' },
-      { title: 'Years of Experience', amount: '5+' },
+      { title: 'Federal Systems Managed', amount: '10+' },
+      { title: 'Years Experience', amount: '10+' },
+      { title: 'Azure Certifications', amount: '2' },
+      { title: 'Enterprise-Scale Systems', amount: 'Production' },
     ]}
   />
 
-  <!-- Our Story -->
+  <!-- Professional Journey -->
   <Features3
-    title="Our Journey"
-    subtitle="Building Tomorrow's Technology Today"
+    title="My Professional Journey"
+    subtitle="Real projects, real impact"
     columns={2}
     items={[
       {
-        title: 'The Beginning',
-        description: 'Founded with a vision to bridge the gap between theoretical computer science and practical business applications, LJBLab has evolved into a powerhouse of innovation.',
-        icon: 'tabler:rocket',
+        title: 'Federal Government Systems (2023-Present)',
+        description: 'Software Engineer at NuAxis Innovations, managing 10+ federal systems supporting critical government operations. Leading AI/ML integration, enterprise Blazor development, and modernization efforts while maintaining FedRAMP and FISMA compliance.',
+        icon: 'tabler:building-government',
       },
       {
-        title: 'Our Mission',
-        description: 'To democratize advanced technology and make cutting-edge solutions accessible to businesses of all sizes. We believe AI and modern development should empower every organization.',
-        icon: 'tabler:target',
+        title: 'PreventX AI',
+        description: 'Building an AI-powered safety platform using multi-agent orchestration with Semantic Kernel and CrewAI. Implementing Text-to-SQL capabilities with Vanna AI for natural language database queries and analytics.',
+        icon: 'tabler:brain',
       },
       {
-        title: 'Our Approach',
-        description: 'We combine deep technical knowledge with strategic business thinking to deliver solutions that don\'t just work – they transform organizations.',
-        icon: 'tabler:bulb',
+        title: 'Bliik Platform',
+        description: 'Architected and built a multi-tenant enterprise SaaS platform using Blazor Server and .NET Core 8. Implemented tenant isolation, role-based access control, and comprehensive audit logging for compliance.',
+        icon: 'tabler:cloud',
       },
       {
-        title: 'Our Vision',
-        description: 'To be the catalyst for digital transformation, enabling businesses to harness the full potential of modern technology.',
-        icon: 'tabler:eye',
+        title: 'Facial Recognition Systems (2018-2019)',
+        description: 'Designed and implemented facial recognition systems using computer vision and machine learning. Achieved production-grade accuracy through systematic AI model training, validation, and deployment processes.',
+        icon: 'tabler:scan',
       },
     ]}
   />
 
-  <!-- Core Values -->
+  <!-- Core Expertise -->
   <Features2
-    title="Our Core Values"
-    subtitle="The principles that guide everything we do"
-    highlight="Values"
+    title="Core Expertise"
+    subtitle="Technologies I work with daily"
+    highlight="Skills"
     items={[
       {
-        title: 'Innovation First',
-        description: 'We push boundaries and challenge conventions. Every project is an opportunity to innovate and create something extraordinary.',
-        icon: 'tabler:bulb',
+        title: 'AI/ML Integration',
+        description: 'Multi-agent orchestration with Semantic Kernel, LangChain, and CrewAI. Text-to-SQL with Vanna AI. Production experience with confidence scoring and human-in-the-loop validation.',
+        icon: 'tabler:robot',
       },
       {
-        title: 'Quality Without Compromise',
-        description: 'Excellence is non-negotiable. We deliver solutions that are robust, scalable, and built to last.',
-        icon: 'tabler:award',
+        title: 'Enterprise Blazor Development',
+        description: 'Building complex Blazor Server and WebAssembly applications. Authentication flows, state management, SignalR real-time features, and component architecture patterns.',
+        icon: 'tabler:components',
       },
       {
-        title: 'Transparency & Trust',
-        description: 'Open communication and honest partnerships. We believe in building relationships based on trust and mutual respect.',
-        icon: 'tabler:users',
-      },
-      {
-        title: 'Continuous Learning',
-        description: 'Technology evolves, and so do we. We stay at the forefront through constant learning and adaptation.',
-        icon: 'tabler:trending-up',
-      },
-      {
-        title: 'Impact-Driven',
-        description: 'We measure success by the real-world impact of our solutions. Every line of code should create tangible value.',
-        icon: 'tabler:chart-line',
-      },
-      {
-        title: 'Ethical Technology',
-        description: 'Responsible AI and ethical data practices. We build technology that respects privacy and promotes fairness.',
+        title: 'Government Compliance',
+        description: 'Hands-on experience passing FedRAMP and FISMA audits. Implementing security controls, audit logging, and compliance documentation for federal systems.',
         icon: 'tabler:shield-check',
       },
+      {
+        title: 'Legacy Modernization',
+        description: 'Migrating monolithic applications to microservices. Strangler Fig pattern implementation. Database modernization and API-first architectures.',
+        icon: 'tabler:refresh',
+      },
+      {
+        title: 'Cloud Architecture',
+        description: 'Azure certified (Developer Associate, DevOps Engineer Expert). Container orchestration, CI/CD pipelines, infrastructure as code, and cost optimization.',
+        icon: 'tabler:cloud-computing',
+      },
+      {
+        title: 'Database Solutions',
+        description: 'SQL Server, Oracle, PostgreSQL, and MongoDB. Query optimization, migration strategies, and Text-to-SQL AI implementation for business intelligence.',
+        icon: 'tabler:database',
+      },
     ]}
   />
 
-  <!-- Our Process -->
+  <!-- Development Philosophy -->
   <Steps2
-    title="How We Work"
-    subtitle="Our proven methodology for delivering exceptional results"
+    title="My Development Philosophy"
+    subtitle="What I've learned building production systems"
     items={[
       {
-        title: 'Discovery & Analysis',
-        description: 'We dive deep into your business challenges, understanding not just what you need, but why you need it.',
+        title: 'Understand the Real Problem',
+        description: 'Before writing code, I dig deep to understand the actual business challenge. Requirements often describe symptoms, not root causes.',
         icon: 'tabler:search',
       },
       {
-        title: 'Strategic Planning',
-        description: 'We craft a detailed roadmap that aligns technology solutions with business objectives.',
-        icon: 'tabler:map',
+        title: 'Design for Production',
+        description: 'Every architectural decision considers monitoring, observability, error handling, and operational requirements from day one.',
+        icon: 'tabler:tool',
       },
       {
-        title: 'Agile Development',
-        description: 'Using modern methodologies, we build iteratively with continuous feedback and adaptation.',
-        icon: 'tabler:code',
-      },
-      {
-        title: 'Rigorous Testing',
-        description: 'Quality assurance integrated throughout with automated testing and security audits.',
+        title: 'Test Comprehensively',
+        description: 'Unit tests, integration tests, and end-to-end scenarios. Automated testing enables confident refactoring and rapid iteration.',
         icon: 'tabler:test-pipe',
       },
       {
-        title: 'Seamless Deployment',
-        description: 'We handle deployment complexities, ensuring smooth transitions with minimal disruption.',
-        icon: 'tabler:rocket',
+        title: 'Document Decisions',
+        description: 'Architecture Decision Records (ADRs) capture the why behind technical choices. Future teams need context, not just code.',
+        icon: 'tabler:file-text',
       },
       {
-        title: 'Continuous Support',
-        description: 'Ongoing support and optimization to ensure your solution evolves with your needs.',
-        icon: 'tabler:lifebuoy',
+        title: 'Iterate Based on Feedback',
+        description: 'Production metrics and user feedback drive continuous improvement. Real-world usage reveals insights that design sessions cannot.',
+        icon: 'tabler:refresh-alert',
+      },
+      {
+        title: 'Share Knowledge',
+        description: 'Document learnings, mentor team members, and contribute to the developer community. Knowledge compounds when shared.',
+        icon: 'tabler:share',
       },
     ]}
   />
 
   <!-- Technology Stack -->
   <Features2
-    title="Our Technology Arsenal"
-    subtitle="Cutting-edge tools and frameworks we master"
+    title="Technology Stack"
+    subtitle="Tools and frameworks I use in production"
     columns={3}
     items={[
       {
-        title: 'AI & Machine Learning',
-        description: 'TensorFlow, PyTorch, Scikit-learn, OpenAI, Hugging Face',
+        title: 'AI/ML Frameworks',
+        description: 'Semantic Kernel, LangChain, CrewAI, Vanna AI, Azure OpenAI, Hugging Face',
         icon: 'tabler:brain',
       },
       {
-        title: 'Cloud Platforms',
-        description: 'AWS, Azure, Google Cloud, Kubernetes, Docker',
+        title: 'Cloud & DevOps',
+        description: 'Azure (certified), Docker, Kubernetes, GitHub Actions, Terraform, Azure DevOps',
         icon: 'tabler:cloud',
       },
       {
-        title: 'Data Engineering',
-        description: 'Apache Spark, Kafka, Airflow, Databricks, Snowflake',
+        title: 'Databases',
+        description: 'SQL Server, Oracle, PostgreSQL, MongoDB, Entity Framework Core, Dapper',
         icon: 'tabler:database',
       },
       {
-        title: 'Web Development',
-        description: 'React, Vue, Blazor, Next.js, ASP.NET Core',
+        title: '.NET Ecosystem',
+        description: '.NET Core 8, ASP.NET Core, Blazor Server/WASM, MVC, Web API, SignalR',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Frontend Technologies',
+        description: 'Angular, React, TypeScript, JavaScript, jQuery, Tailwind CSS, Bootstrap',
         icon: 'tabler:world',
       },
       {
-        title: 'Mobile Development',
-        description: '.NET MAUI, React Native, Flutter, Xamarin',
-        icon: 'tabler:device-mobile',
-      },
-      {
-        title: 'DevOps & CI/CD',
-        description: 'GitHub Actions, Jenkins, GitLab CI, ArgoCD',
-        icon: 'tabler:git-merge',
+        title: 'Data Science',
+        description: 'Python, Pandas, NumPy, Matplotlib, Seaborn, SciPy, GeoPandas, Jupyter',
+        icon: 'tabler:chart-line',
       },
     ]}
   />
 
-  <!-- Leadership Section -->
+  <!-- About Me Section -->
   <div class="py-16 px-6 mx-auto max-w-6xl">
     <div class="text-center mb-12">
-      <h2 class="text-4xl font-bold mb-4">Meet the Founder</h2>
+      <h2 class="text-4xl font-bold mb-4">About Me</h2>
       <div class="mt-8 p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 max-w-4xl mx-auto">
         <h3 class="text-2xl font-bold mb-2">Lincoln J Bicalho</h3>
-        <p class="text-lg text-muted mb-6">Founder & Principal Software Engineer</p>
-        
+        <p class="text-lg text-muted mb-6">Software Engineer & AI Integration Specialist</p>
+
         <div class="text-left space-y-4 mb-6">
           <div class="border-l-4 border-blue-500 pl-4">
             <h4 class="font-semibold text-lg mb-2">Current Role</h4>
             <p class="text-base leading-relaxed">
-              <strong>Senior Software Engineer (Federal Contractor)</strong> (February 2023 - Present)<br/>
-              Leading development efforts for federal agencies, architecting and maintaining over 10 critical systems 
-              that serve millions of visitors annually. Specializing in enterprise .NET applications using MVC architecture, 
-              Angular, jQuery, and implementing clean architecture patterns for scalable, maintainable solutions. Currently pursuing 
-              Master\'s degree in Software Engineering at the University of Maryland.
+              I'm a Software Engineer at <strong>NuAxis Innovations</strong> in Germantown, Maryland, working as a federal contractor.
+              I manage 10+ federal government systems supporting critical government operations. My focus is on enterprise .NET applications,
+              AI/ML integration, and modernizing legacy systems while maintaining strict government compliance (FedRAMP, FISMA).
+            </p>
+            <p class="text-base leading-relaxed mt-2">
+              I'm currently pursuing a <strong>Master's degree in Software Engineering at the University of Maryland</strong>,
+              deepening my expertise in advanced software architecture and AI systems.
             </p>
           </div>
-          
+
           <div class="border-l-4 border-purple-500 pl-4">
-            <h4 class="font-semibold text-lg mb-2">Technical Expertise</h4>
+            <h4 class="font-semibold text-lg mb-2">Concurrent Ventures</h4>
             <p class="text-base leading-relaxed">
-              Full-stack developer with deep expertise in modern software architecture, from enterprise .NET ecosystems to 
-              cutting-edge AI implementations. Proficient in C#, JavaScript/TypeScript, advanced analytics technologies, and cloud-native solutions. 
-              Passionate about clean code, design patterns, and building systems that scale.
+              Beyond my federal work, I'm building <strong>PreventX AI</strong>, an AI-powered safety platform using multi-agent
+              orchestration. I'm implementing Text-to-SQL capabilities with Vanna AI, allowing non-technical users to query databases
+              using natural language. I'm also working on the <strong>Bliik Platform</strong>, a multi-tenant enterprise SaaS solution
+              built with Blazor Server and .NET Core 8.
             </p>
           </div>
-          
+
           <div class="border-l-4 border-green-500 pl-4">
-            <h4 class="font-semibold text-lg mb-2">Professional Journey</h4>
+            <h4 class="font-semibold text-lg mb-2">What Drives Me</h4>
             <p class="text-base leading-relaxed">
-              With extensive experience across government, enterprise, and startup environments, I've led development teams, 
-              architected mission-critical systems, and delivered innovative solutions that transform how organizations operate. 
-              From modernizing legacy government systems to implementing AI-driven analytics platforms, my focus is always on 
-              delivering tangible business value through technology.
+              I'm passionate about making AI accessible and practical for enterprise use. I believe AI should assist experts,
+              not replace them. My experience with facial recognition systems (2018-2019) taught me that successful AI implementation
+              requires careful training, validation, and ongoing human oversight. I focus on building systems that provide value
+              while maintaining transparency about their limitations.
+            </p>
+          </div>
+
+          <div class="border-l-4 border-amber-500 pl-4">
+            <h4 class="font-semibold text-lg mb-2">Production Experience</h4>
+            <p class="text-base leading-relaxed">
+              I've architected systems that handle high-volume traffic, passed federal security audits, and maintained production
+              systems with strict uptime requirements. I've debugged 3 AM production issues, optimized database queries that were
+              timing out, and migrated legacy applications to modern architectures. This hands-on experience shapes how I approach
+              every new project—with production realities in mind from day one.
             </p>
           </div>
         </div>
-        
+
         <p class="text-lg leading-relaxed italic border-t pt-6">
-          "Technology should solve real problems and create meaningful impact. At LJBLab, we combine enterprise-grade 
-          engineering practices with innovative thinking to deliver solutions that not only work today but scale for tomorrow."
+          "I build systems that solve real problems. My focus is on production-ready solutions that scale,
+          maintain, and deliver measurable value. Every architectural decision considers the team that will support
+          it and the users who depend on it."
         </p>
-        
+
         <div class="flex flex-wrap justify-center gap-3 mt-6 pt-6 border-t">
           <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">
-            .NET/C#
+            .NET Core 8
+          </span>
+          <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">
+            Blazor Server/WASM
           </span>
           <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">
             Angular
           </span>
-          <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">
+          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm">
+            Semantic Kernel
+          </span>
+          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm">
+            Vanna AI
+          </span>
+          <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm">
+            Azure Certified
+          </span>
+          <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm">
             Clean Architecture
           </span>
-          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm">
-            AI/ML
-          </span>
-          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm">
-            Blazor
-          </span>
-          <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm">
-            Azure
-          </span>
-          <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm">
-            Microservices
+          <span class="px-3 py-1 bg-amber-100 dark:bg-amber-900 text-amber-800 dark:text-amber-200 rounded-full text-sm">
+            FedRAMP/FISMA
           </span>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Certifications & Education -->
+  <div class="py-16 px-6 mx-auto max-w-6xl bg-gray-50 dark:bg-gray-900 rounded-3xl">
+    <h2 class="text-3xl font-bold text-center mb-12">Certifications & Education</h2>
+    <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <div class="text-center p-6 bg-white dark:bg-gray-800 rounded-xl">
+        <div class="text-4xl mb-4">🎓</div>
+        <h3 class="font-bold mb-2">Master's in Software Engineering</h3>
+        <p class="text-sm text-muted">University of Maryland</p>
+        <p class="text-sm text-muted">In Progress</p>
+      </div>
+      <div class="text-center p-6 bg-white dark:bg-gray-800 rounded-xl">
+        <div class="text-4xl mb-4">☁️</div>
+        <h3 class="font-bold mb-2">Azure Developer Associate</h3>
+        <p class="text-sm text-muted">Microsoft Certified</p>
+        <p class="text-sm text-muted">AZ-204</p>
+      </div>
+      <div class="text-center p-6 bg-white dark:bg-gray-800 rounded-xl">
+        <div class="text-4xl mb-4">🔧</div>
+        <h3 class="font-bold mb-2">Azure DevOps Engineer Expert</h3>
+        <p class="text-sm text-muted">Microsoft Certified</p>
+        <p class="text-sm text-muted">AZ-400</p>
       </div>
     </div>
   </div>
@@ -263,17 +304,17 @@ const metadata = {
   <div class="py-16 px-6 mx-auto max-w-6xl">
     <div class="text-center p-12 rounded-3xl bg-gradient-to-r from-blue-600 to-purple-600">
       <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
-        Ready to Innovate?
+        Let's Work Together
       </h2>
       <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-        Let's discuss how we can transform your business with cutting-edge technology solutions.
+        I'm available for consulting on AI/ML integration, enterprise Blazor development, and government digital transformation projects.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a href="/contact" class="btn bg-white text-blue-600 hover:bg-gray-100 font-semibold px-8 py-4 rounded-full">
-          Start Your Project
+          Get in Touch
         </a>
         <a href="/blog" class="btn bg-transparent text-white border-2 border-white hover:bg-white hover:text-blue-600 font-semibold px-8 py-4 rounded-full">
-          Explore Our Work
+          Read My Blog
         </a>
       </div>
     </div>

@@ -12,15 +12,15 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 import ContactCTA from '~/components/widgets/ContactCTA.astro';
 import ProjectTicker from '~/components/widgets/ProjectTicker.astro';
 import CurrentVentures from '~/components/widgets/CurrentVenturesV2.astro';
-import ImpactDashboard from '~/components/widgets/ImpactDashboard.astro';
+// import ImpactDashboard from '~/components/widgets/ImpactDashboard.astro';
 import CareerTimeline from '~/components/widgets/CareerTimeline.astro';
-import Testimonials from '~/components/widgets/Testimonials.astro';
-import CaseStudies from '~/components/widgets/CaseStudies.astro';
+// import Testimonials from '~/components/widgets/Testimonials.astro';
+// import CaseStudies from '~/components/widgets/CaseStudies.astro';
 
 const metadata = {
-  title: 'Lincoln J Bicalho - Parallel Innovation Architect | LJBLab',
+  title: 'Lincoln J Bicalho - AI Integration Specialist | Blazor & Federal Systems Expert',
   ignoreTitleTemplate: true,
-  description: 'Lincoln J Bicalho: Building AI where it matters most. Senior Software Engineer currently leading 3 concurrent ventures across Healthcare, Government, and Social Impact sectors.',
+  description: 'Senior Software Engineer at NuAxis Innovations managing 10+ federal government systems. Expertise in Blazor, AI/ML multi-agent systems, and legacy modernization. Azure certified.',
 };
 ---
 
@@ -43,33 +43,33 @@ const metadata = {
   >
     <Fragment slot="title">
       <div class="text-sm font-semibold text-gray-400 mb-2">Lincoln J Bicalho</div>
-      Building AI Where <br />
-      <span class="text-accent dark:text-white">It Matters Most</span>
+      AI Integration Specialist <br />
+      <span class="text-accent dark:text-white">for Federal Systems</span>
     </Fragment>
 
     <Fragment slot="subtitle">
       <div class="mb-4">
-        <span class="font-bold text-lg">Parallel Innovation Architect</span> -
-        Currently leading <span class="text-gray-100 font-semibold">3 concurrent AI ventures</span> across
-        Healthcare, Government, and Social Impact sectors.
+        <span class="font-bold text-lg">Senior Software Engineer</span> at NuAxis Innovations -
+        Managing <span class="text-gray-100 font-semibold">10+ federal government systems</span> with expertise in
+        AI/ML integration, Blazor enterprise architecture, and legacy modernization.
       </div>
       <div class="flex flex-wrap justify-center gap-4 text-sm">
         <span class="flex items-center gap-1 px-3 py-1 bg-gray-800/50 rounded-full">
-          <span class="text-green-400/70 text-xs">●</span> PreventX AI
+          <span class="text-blue-400/70 text-xs">●</span> 10+ Federal Systems
         </span>
         <span class="flex items-center gap-1 px-3 py-1 bg-gray-800/50 rounded-full">
-          <span class="text-amber-400/70 text-xs">●</span> Bliik Platform
+          <span class="text-green-400/70 text-xs">●</span> Azure Certified
         </span>
         <span class="flex items-center gap-1 px-3 py-1 bg-gray-800/50 rounded-full">
-          <span class="text-blue-400/70 text-xs">●</span> Federal Systems
+          <span class="text-amber-400/70 text-xs">●</span> AI/ML Specialist
         </span>
       </div>
     </Fragment>
   </Hero>
 
   <!-- Impact Dashboard ******************* -->
-  
-  <ImpactDashboard />
+
+  <!-- <ImpactDashboard /> -->
   
   <!-- Current Ventures Section ******************* -->
   
@@ -80,25 +80,25 @@ const metadata = {
   <CareerTimeline />
   
   <!-- Testimonials ******************* -->
-  
-  <Testimonials />
+
+  <!-- <Testimonials /> -->
   
   <!-- Case Studies ******************* -->
-  
-  <CaseStudies />
+
+  <!-- <CaseStudies /> -->
 
   <!-- Portfolio/Features Widget *************** -->
 
   <Features
     id="portfolio"
-    tagline="Our Expertise"
-    title="Innovation Portfolio"
-    subtitle="Cutting-edge experiments and developments across multiple domains"
+    tagline="Technical Expertise"
+    title="Technical Capabilities"
+    subtitle="Proven expertise in AI/ML integration, .NET development, and enterprise architecture"
     items={[
       {
         title: 'AI & Machine Learning',
         description:
-          'Text-to-SQL systems with Semantic Kernel, LangChain, CrewAI orchestration. Facial recognition platforms with 99.7% accuracy. Multi-agent systems and intelligent automation.',
+          'Building Text-to-SQL systems using Semantic Kernel, LangChain, and CrewAI for multi-agent orchestration. Implemented facial recognition systems (2018-2019). Focus on practical AI integration that assists human expertise.',
         icon: 'tabler:robot',
       },
       {
@@ -140,7 +140,7 @@ const metadata = {
   <Features2
     title="Technology Stack"
     subtitle="Leveraging the latest technologies to build robust solutions"
-    tagline="Our Tools"
+    tagline="Technology Stack"
     items={[
       {
         title: 'Languages & Frameworks',
@@ -183,7 +183,7 @@ const metadata = {
 
   <BlogLatestPosts
     title="Latest Insights"
-    subtitle="Stay updated with our latest thoughts on technology, development practices, and innovation"
+    subtitle="Technical insights on AI/ML integration, Blazor development, and federal system modernization"
     tagline="Blog"
   />
 
@@ -204,11 +204,11 @@ const metadata = {
     ]}
   >
     <Fragment slot="title">
-      Let's Build Something <br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Amazing Together</span>
+      Building Federal Systems <br class="block sm:hidden" /><span class="sm:whitespace-nowrap">with AI/ML Integration?</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Ready to bring your ideas to life? Let's discuss your next innovative project.
+      I specialize in Blazor enterprise development, multi-agent AI systems, and legacy system modernization. Let's discuss how these approaches can work for your specific requirements.
     </Fragment>
   </CallToAction>
 </Layout>
