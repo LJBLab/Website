@@ -2,7 +2,7 @@
 
 ## 🚀 Overview
 
-Professional portfolio and business website for Lincoln Bicalho, showcasing expertise in AI/ML, federal systems modernization, and parallel innovation across healthcare, government, and social impact sectors.
+Professional portfolio and business website for Lincoln J Bicalho, showcasing expertise in AI/ML, federal systems modernization, and parallel innovation across healthcare, government, and social impact sectors.
 
 **Live Site:** [ljblab.dev](https://ljblab.dev)
 

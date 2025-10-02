@@ -3,7 +3,7 @@
 ## 🌐 Website Overview
 
 **URL**: https://ljblab.dev  
-**Purpose**: Professional portfolio and personal brand platform for Lincoln Bicalho  
+**Purpose**: Professional portfolio and personal brand platform for Lincoln J Bicalho  
 **Technology**: Astro framework with AstroWind template  
 **Analytics**: Google Analytics (G-2M8SP1FDEX)
 
@@ -15,40 +15,40 @@
 
 ## 👤 Professional Profile
 
-**Name**: Lincoln Bicalho  
-**Current Role**: Software Engineer at NuAxis Innovations (U.S. Department of Interior)  
+**Name**: Lincoln J Bicalho  
+**Current Role**: Software Engineer (federal contractor)  
 **Experience**: 10+ years in software development  
-**Location**: Germantown, Maryland, United States  
+**Education**: Currently pursuing Master's degree in Software Engineering at the University of Maryland  
 **Contact**: lincoln@ljblab.dev
 
 ### Key Expertise
-- **AI/ML**: Text-to-SQL systems (2023-2025), Facial Recognition (2018-2019)
+- **AI/ML**: AI/ML systems development, Multi-agent orchestration, Facial Recognition (2018-2019)
 - **Technologies**: Semantic Kernel, LangChain, CrewAI, Vanna AI, Claude Code, GitHub Copilot
 - **Frameworks**: .NET Core, ASP.NET MVC, Angular, React, Blazor Server/WASM
 - **Cloud**: Azure Developer Associate & DevOps Engineer Expert certified
 - **Databases**: SQL Server, Oracle, MySQL, PostgreSQL, MongoDB
 - **Data Science**: Python (Pandas, NumPy, Matplotlib, Seaborn, SciPy, GeoPandas)
 
-### Current Projects at DOI
-- Managing 10+ National Park Service systems
-- Text-to-SQL AI System using multi-agent orchestration
+### Current Projects
+- Managing 10+ federal government systems
+- AI/ML system development using multi-agent orchestration
 - Full-stack development with Clean Architecture and MVC patterns
 - Comprehensive testing with xUnit
 
 ## 🎯 Website Purpose & Goals
 
 ### Primary Purpose
-Establish Lincoln Bicalho as a thought leader in AI-powered enterprise development, particularly in government digital transformation.
+Establish Lincoln J Bicalho as a thought leader in AI-powered enterprise development, particularly in government digital transformation.
 
 ### Target Audiences
 1. **Government Agencies** - Seeking AI/ML modernization and digital transformation
-2. **Enterprise Clients** - Needing complex database solutions and Text-to-SQL capabilities
+2. **Enterprise Clients** - Needing complex database solutions and AI-powered analytics capabilities
 3. **Tech Community** - Developers interested in AI integration and .NET technologies
 4. **Potential Employers/Clients** - Looking for senior technical leadership
 
 ### Business Goals
 - Generate consulting opportunities in AI/government tech
-- Build authority in Text-to-SQL and multi-agent systems
+- Build authority in AI/ML and multi-agent systems
 - Showcase expertise for career advancement
 - Create a platform for knowledge sharing
 
@@ -86,7 +86,7 @@ Establish Lincoln Bicalho as a thought leader in AI-powered enterprise developme
 **Current Strategy**:
 1. **Repositioning**: From "Senior Software Engineer" to "AI Integration Specialist"
 2. **Three Pillars**:
-   - AI-Powered Development (Text-to-SQL expertise)
+   - AI-Powered Development (Multi-agent systems expertise)
    - Government Digital Transformation
    - Legacy System Modernization
 3. **Content Plan**: Weekly LinkedIn posts, technical tutorials, case studies
@@ -113,7 +113,7 @@ git push origin main
 
 ### Key Directories
 - `/src/pages/` - Main page components
-- `/src/content/post/` - Blog posts in Markdown
+- `/src/data/post/` - Blog posts in Markdown (CORRECT location for all blog posts)
 - `/src/config.yaml` - Site configuration
 - `/src/navigation.ts` - Navigation structure
 - `/tailwind.config.js` - Design system configuration
@@ -124,7 +124,7 @@ git push origin main
 1. [ ] Add professional headshot to hero section
 2. [ ] Create "Work With Me" page with service offerings
 3. [ ] Implement newsletter signup for "AI in Government" insights
-4. [ ] Add case study for Text-to-SQL project
+4. [ ] Add case study for AI/ML project
 5. [ ] Update LinkedIn profile with new positioning
 
 ### Design Enhancements
@@ -177,6 +177,27 @@ git push origin main
 - Focus on demonstrating expertise through practical examples
 - Remember the three pillars: AI Development, Government Tech, Legacy Modernization
 
+## 📋 Content Authenticity Standards
+
+### ✅ Content Quality Requirements
+- **No Fabricated Statistics**: Never use specific numbers, percentages, or metrics without verifiable sources
+- **Experience-Based Language**: Use "in our experience," "commonly observed," or "typical patterns" instead of specific claims
+- **Relative Terms**: "Significantly faster," "substantial improvement" instead of "70% improvement," "3x faster"
+- **Industry Patterns**: Focus on architectural patterns and best practices rather than specific implementations
+- **Source Attribution**: Always cite sources for external statistics, benchmarks, or industry data
+
+### ❌ Avoid These Practices
+- Specific metrics without sources ("increased from $2,000 to $18,000/month")
+- Exact timeframes without verification ("18 months in production")
+- Precise tenant counts ("50+ tenants," "10+ agencies")
+- Unverifiable uptime claims ("99.99% uptime")
+- Fabricated case study details
+
+### 📖 Reference Documents
+- See `/CONTENT_GUIDELINES.md` for comprehensive content standards
+- Review process: All content should be self-audited before publication
+- Focus on providing genuine value through architecture insights and code examples
+
 ## 🎯 Success Metrics
 
 - **Traffic**: 1000+ monthly visitors within 6 months
@@ -187,5 +208,5 @@ git push origin main
 
 ---
 
-*Last Updated: August 2024*  
-*Next Review: September 2024*
+*Last Updated: January 2025*  
+*Next Review: April 2025*

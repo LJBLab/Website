@@ -12,8 +12,4 @@ import { ANALYTICS } from 'astrowind:config';
   ) : null
 }
 
-<!-- Vercel Analytics -->
-<script>
-  import { inject } from '@vercel/analytics';
-  inject();
-</script>
+<!-- Vercel Analytics is automatically injected by @astrojs/vercel adapter -->
